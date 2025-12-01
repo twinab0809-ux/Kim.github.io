@@ -1,0 +1,635 @@
+{\rtf1\ansi\ansicpg949\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="ko">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>\uc0\u44608 \u49328 \u54616  (SANHA KIM) \u54252 \u53944 \u54260 \u47532 \u50724  - Yellow Beige Theme</title>\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">\
+    <style>\
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');\
+        \
+        :root \{\
+            --color-primary: #D9A066;   \
+            --color-secondary: #EBC96F; \
+            --color-background: #F8F5EE;\
+            --color-surface: #FFFDF8;   \
+            --color-text-dark: #3E332B; \
+            --color-text-mid: #7A6F66;  \
+            --color-bar-bg: #EAE5D9;    \
+        \}\
+\
+        body \{\
+            font-family: 'Pretendard', sans-serif;\
+            scroll-behavior: smooth;\
+            background-color: var(--color-background);\
+            color: var(--color-text-dark);\
+            line-height: 1.6;\
+        \}\
+\
+        h1, h2, h3, h4, h5 \{\
+            font-family: 'Pretendard', sans-serif;\
+            color: var(--color-text-dark);\
+            font-weight: 700;\
+        \}\
+        h2.section-title \{\
+            position: relative;\
+            display: inline-block;\
+            font-size: 2.25rem;\
+            padding-bottom: 0.5rem;\
+        \}\
+        h2.section-title::after \{\
+            content: '';\
+            position: absolute;\
+            bottom: 0;\
+            left: 0;\
+            width: 40%;\
+            height: 4px;\
+            background-color: var(--color-secondary);\
+            border-radius: 2px;\
+        \}\
+\
+        .hero-section \{\
+            background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);\
+            min-height: 100vh;\
+        \}\
+        .project-section \{\
+            scroll-margin-top: 100px;\
+        \}\
+        .skill-card \{\
+            background-color: var(--color-surface);\
+            border: 1px solid #EDE9E0;\
+            transition: all 0.3s ease;\
+        \}\
+        .skill-card:hover \{\
+            box-shadow: 0 10px 20px rgba(217, 160, 102, 0.15);\
+            border-color: var(--color-primary);\
+            transform: translateY(-4px);\
+        \}\
+        .icon-box \{\
+            color: var(--color-primary);\
+            background-color: #FEF7E6;\
+        \}\
+        .highlight-text \{\
+            color: var(--color-primary);\
+            font-weight: 600;\
+        \}\
+        /* Info Box \uc0\u49828 \u53440 \u51068  */\
+        .info-box \{\
+            background-color: var(--color-surface);\
+            border-left: 4px solid var(--color-secondary);\
+            padding: 1.5rem;\
+            border-radius: 0.5rem;\
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);\
+            border: 1px solid #EDE9E0;\
+            border-left-width: 4px; \
+            margin-bottom: 1rem;\
+        \}\
+        .info-box-header \{\
+            color: var(--color-primary);\
+            font-weight: 700;\
+            margin-bottom: 0.5rem;\
+            font-size: 1.1rem;\
+        \}\
+        .info-box-content \{\
+            font-size: 0.95rem;\
+            color: var(--color-text-mid);\
+            white-space: pre-line; \
+        \}\
+\
+        /* Video Containers */\
+        .video-container \{\
+            position: relative;\
+            width: 100%;\
+            padding-bottom: 56.25%; /* 16:9 */\
+            height: 0;\
+            overflow: hidden;\
+            border-radius: 0.5rem;\
+            background: #000;\
+        \}\
+        /* Shorts\uc0\u50857  \u49464 \u47196 \u54805  \u48708 \u46356 \u50724  \u52968 \u53580 \u51060 \u45320  */\
+        .video-container-short \{\
+            position: relative;\
+            width: 100%;\
+            max-width: 400px; /* \uc0\u45320 \u47924  \u52964 \u51648 \u51648  \u50506 \u46020 \u47197  \u51228 \u54620  */\
+            aspect-ratio: 9 / 16;\
+            margin: 0 auto; /* \uc0\u51473 \u50521  \u51221 \u47148  */\
+            border-radius: 0.5rem;\
+            overflow: hidden;\
+            background: #000;\
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\
+        \}\
+\
+        .video-container iframe, .video-container-short iframe \{\
+            position: absolute;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+        \}\
+        \
+        .progress-bar \{\
+            background-color: var(--color-primary);\
+            height: 100%;\
+            border-radius: 9999px;\
+            width: 0;\
+            transition: width 1.5s ease-in-out;\
+        \}\
+\
+        /* \uc0\u51060 \u48120 \u51648  \u52968 \u53580 \u51060 \u45320  \u49828 \u53440 \u51068  (\u48512 \u51228 \u47785  \u50500 \u47000  \u48176 \u52824 \u50857 ) */\
+        .visual-container \{\
+            margin-top: 1.5rem;\
+            margin-bottom: 2rem;\
+            width: 100%;\
+            display: flex;\
+            justify-content: center;\
+        \}\
+        .visual-container img \{\
+            max-height: 500px;\
+            object-fit: contain;\
+            width: 100%;\
+            border-radius: 0.5rem;\
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);\
+        \}\
+    </style>\
+</head>\
+<body>\
+\
+    <!-- Navigation -->\
+    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">\
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\
+            <div class="flex justify-between items-center h-16">\
+                <a href="#home" class="text-2xl font-bold" style="color: var(--color-primary);">SANHA KIM</a>\
+                <div class="hidden md:flex space-x-8">\
+                    <a href="#home" class="text-gray-700 hover:text-red-600 transition duration-300">Home</a>\
+                    <a href="#skills" class="text-gray-700 hover:text-red-600 transition duration-300">\uc0\u54645 \u49900  \u50669 \u47049 </a>\
+                    <a href="#projects" class="text-gray-700 hover:text-red-600 transition duration-300">\uc0\u51452 \u50836  \u54532 \u47196 \u51229 \u53944 </a>\
+                    <a href="#contact" class="text-gray-700 hover:text-red-600 transition duration-300">Contact</a>\
+                </div>\
+                <button id="mobile-menu-button" class="md:hidden text-gray-500 hover:text-red-600 focus:outline-none">\
+                    <i class="fas fa-bars text-xl"></i>\
+                </button>\
+            </div>\
+        </div>\
+        <div id="mobile-menu" class="hidden md:hidden bg-white">\
+            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>\
+            <a href="#skills" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">\uc0\u54645 \u49900  \u50669 \u47049 </a>\
+            <a href="#projects" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">\uc0\u51452 \u50836  \u54532 \u47196 \u51229 \u53944 </a>\
+            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>\
+        </div>\
+    </nav>\
+\
+    <!-- Hero Section -->\
+    <section id="home" class="hero-section flex items-center justify-center p-4 sm:p-8">\
+        <div class="max-w-7xl mx-auto w-full py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between">\
+            <div class="lg:w-1/3 w-2/3 max-w-sm mb-10 lg:mb-0 lg:order-2">\
+                <img src="https://placehold.co/400x400/F2EFE7/4A403A?text=SANHA+KIM+Profile" \
+                     alt="\uc0\u44608 \u49328 \u54616  \u54532 \u47196 \u54596  \u49324 \u51652 " \
+                     class="rounded-xl shadow-xl ring-4" \
+                     style="border-color: var(--color-primary); object-fit: cover; width: 100%; height: auto; aspect-ratio: 1/1;">\
+            </div>\
+            <div class="lg:w-1/2 lg:pr-16 text-center lg:text-left lg:order-1">\
+                <p class="text-lg mb-2" style="color: var(--color-primary);">KIM SANHA PORTFOLIO</p>\
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight tracking-tight">\
+                    \uc0\u44608 \u49328 \u54616  (SANHA KIM)\
+                </h1>\
+                <p class="text-xl md:text-2xl font-light mb-6" style="color: var(--color-text-mid);">\
+                    \uc0\u49352 \u47196 \u50868  \u48169 \u49885 \u51004 \u47196  \u51656 \u47928 \u54616 \u44256 , \u45796 \u50577 \u54620  \u44221 \u54744 \u50640 \u49436  \u51064 \u49324 \u51060 \u53944 \u47484  \u48156 \u44204 \u54616 \u47728 , \u44208 \u44284 \u47196  \u47568 \u54616 \u45716  \u49324 \u46988 \
+                </p>\
+                <div class="text-base space-y-2" style="color: var(--color-text-mid);">\
+                    <p><strong>\uc0\u49373 \u45380 \u50900 \u51068 :</strong> 2001.08.09 (\u47564  24\u49464 )</p>\
+                    <p><strong>Education:</strong> 2021~ 2025 \uc0\u49689 \u47749 \u50668 \u51088 \u45824 \u54617 \u44368  \u54861 \u48372 \u44305 \u44256 \u54617 \u44284  (\u50689 \u49345  \u50696 \u49696 \u44221 \u50689  \u48373 \u49688 \u51204 \u44277 )</p>\
+                    <p><strong>Contact:</strong> twinab0809@naver.com / 010-3371-2981</p>\
+                </div>\
+                <a href="#skills" class="mt-8 inline-block font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg" \
+                   style="background-color: var(--color-primary); color: white;">\
+                    \uc0\u54645 \u49900  \u50669 \u47049  \u48143  \u54532 \u47196 \u51229 \u53944  \u48372 \u44592  <i class="fas fa-arrow-down ml-2"></i>\
+                </a>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- About Me / Skills / Awards / Activities -->\
+    <section class="max-w-7xl mx-auto px-6 py-20">\
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">\
+            \
+            <!-- Left Column: About & Skills -->\
+            <div>\
+                <h2 class="section-title text-4xl mb-8">About Me</h2>\
+                <div class="space-y-4 mb-12 text-lg" style="color: var(--color-text-mid);">\
+                    <p class="font-semibold" style="color: var(--color-text-dark);">\
+                        \uc0\u49352 \u47196 \u50868  \u48169 \u49885 \u51004 \u47196  \u51656 \u47928 \u54616 \u44256 , \u45796 \u50577 \u54620  \u44221 \u54744 \u50640 \u49436  \u51064 \u49324 \u51060 \u53944 \u47484  \u48156 \u44204 \u54616 \u47728 , \u44208 \u44284 \u47196  \u47568 \u54616 \u45716  \u49324 \u46988 \
+                    </p>\
+                    <p>\
+                        \uc0\u53080 \u53584 \u52768 \u46972 \u45716  \u49464 \u44228 \u45716  \u45720  \u51228 \u44172  \u46020 \u51204 \u51060 \u50632 \u49845 \u45768 \u45796 . \u44592 \u51088 \u45800  \u54876 \u46041 \u50640 \u49436 \u45716  \u51221 \u48372 \u51032  \u48376 \u51656 \u51012  \u54028 \u44256 \u46308 \u50632 \u44256 , \u44033 \u51333  \u44277 \u47784 \u51204 \u50640 \u49436 \u45716  \u49548 \u48708 \u51088 \u51032  \u54665 \u46041 \u51012  \u51069 \u45716  \u48277 \u51012  \u48176 \u50912 \u49845 \u45768 \u45796 . \u51061 \u49689 \u54632 \u51012  \u44648 \u45716  \u49884 \u46020  \u49549 \u50640 \u49436  AI \u53080 \u53584 \u52768 \u51032  \u51032 \u48120  \u51080 \u45716  \u49457 \u44284 \u47484  \u47564 \u46308 \u50612  \u50772 \u51004 \u47728 , \u44536  \u44284 \u51221 \u50640 \u49436  '\u46020 \u51204 \u51008  \u45208 \u47484  \u49457 \u51109 \u49884 \u53416 \u45796 '\u45716  \u54869 \u49888 \u51012  \u44054 \u44172  \u46104 \u50632 \u49845 \u45768 \u45796 .\
+                    </p>\
+                    <p>\
+                        \uc0\u47792 \u51077 \u54616 \u45716  \u51228  \u49457 \u54693 \u51008  \u50616 \u51228 \u45208  \u45796 \u51020  \u49457 \u51109 \u51012  \u54693 \u54633 \u45768 \u45796 . <span class="highlight-text">\u45348 \u51060 \u48260  \u47700 \u51064  \u47021 \u53433  1\u50948  \u45804 \u49457 </span>, <span class="highlight-text">\u49688 \u48177 \u47564  PV \u50976 \u51077 </span>, <span class="highlight-text">\u50937 \u49548 \u49444  \u52636 \u44036  \u44221 \u54744 </span>\u51004 \u47196  \u51613 \u47749 \u54644  \u50772 \u49845 \u45768 \u45796 . \u54616 \u51648 \u47564  \u51200 \u47484  \u44032 \u51109  \u50880 \u51649 \u51060 \u45716  \u51652 \u51676  \u50640 \u45320 \u51648 \u45716  \u49457 \u44284  \u44536  \u51088 \u52404 \u48372 \u45796 , \u53080 \u53584 \u52768 \u44032  \u49324 \u46988 \u50640 \u44172  \u49440 \u54620  \u50689 \u54693 \u51012  \u51460  \u49688  \u51080 \u45796 \u45716  \u48127 \u51020 \u51077 \u45768 \u45796 .\
+                    </p>\
+                </div>\
+\
+                <h3 class="text-2xl font-semibold mb-6" style="color: var(--color-primary);">Skills</h3>\
+                <div class="space-y-6">\
+                    <div>\
+                        <div class="flex justify-between mb-2">\
+                            <span class="font-medium">Premier Pro</span>\
+                            <span class="font-semibold text-gray-500">90</span>\
+                        </div>\
+                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">\
+                            <div class="progress-bar" style="width: 90%;"></div>\
+                        </div>\
+                    </div>\
+                    <div>\
+                        <div class="flex justify-between mb-2">\
+                            <span class="font-medium">Photoshop</span>\
+                            <span class="font-semibold text-gray-500">80</span>\
+                        </div>\
+                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">\
+                            <div class="progress-bar" style="width: 80%;"></div>\
+                        </div>\
+                    </div>\
+                    <div>\
+                        <div class="flex justify-between mb-2">\
+                            <span class="font-medium">Figma</span>\
+                            <span class="font-semibold text-gray-500">70</span>\
+                        </div>\
+                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">\
+                            <div class="progress-bar" style="width: 70%;"></div>\
+                        </div>\
+                    </div>\
+                    <div>\
+                        <div class="flex justify-between mb-2">\
+                            <span class="font-medium">AI Tools (Midjourny, Kling Ai, Gemini, Whisk)</span>\
+                            <span class="font-semibold text-gray-500">70</span>\
+                        </div>\
+                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">\
+                            <div class="progress-bar" style="width: 70%;"></div>\
+                        </div>\
+                    </div>\
+                </div>\
+            </div>\
+\
+            <!-- Right Column: Awards & Activities -->\
+            <div>\
+                <h2 class="section-title text-4xl mb-8">Awards</h2>\
+                <div class="space-y-4 mb-12">\
+                    <div class="border-b pb-4 border-gray-200">\
+                        <p class="text-lg font-semibold" style="color: var(--color-primary);">\uc0\u45824 \u54620 \u48124 \u44397  \u45824 \u54617 \u49373  \u46356 \u51648 \u53560  \u44305 \u44256 \u51228  KUDAF | \u45824 \u49345 </p>\
+                        <p class="text-sm text-gray-500">2025.11</p>\
+                    </div>\
+                    <div class="border-b pb-4 border-gray-200">\
+                        <p class="text-lg font-semibold" style="color: var(--color-primary);">CJ\uc0\u54532 \u47112 \u49884 \u50920 \u51060  \u45824 \u54617 \u49373  \u50808 \u49885  \u47560 \u52992 \u54021  \u50500 \u51060 \u46356 \u50612  \u52300 \u47536 \u51648  | \u45824 \u49345 </p>\
+                        <p class="text-sm text-gray-500">2025.02</p>\
+                    </div>\
+                    <div class="border-b pb-4 border-gray-200">\
+                        <p class="text-lg font-semibold" style="color: var(--color-primary);">\uc0\u49689 \u47749 \u50668 \u45824  '\u49689 \u44305 \u49689 \u47564 ' \u50500 \u51060 \u46356 \u50612  \u54168 \u49828 \u54000 \u48268  \u54532 \u47196 \u47784 \u49496  \u48512 \u47928  | \u45824 \u49345 </p>\
+                        <p class="text-sm text-gray-500">2022.05</p>\
+                    </div>\
+                    <div>\
+                        <p class="text-lg font-semibold" style="color: var(--color-text-dark);">HS\uc0\u50528 \u46300  YCC \u44277 \u47784 \u51204  \u44305 \u44256  \u53356 \u47532 \u50640 \u51060 \u54000 \u48652  \u48512 \u47928  | \u46041 \u49345 </p>\
+                        <p class="text-sm text-gray-500">2022.07</p>\
+                    </div>\
+                </div>\
+\
+                <h3 class="text-2xl font-semibold mb-6" style="color: var(--color-primary);">Activities</h3>\
+                <ul class="space-y-4 text-base" style="color: var(--color-text-mid);">\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2021.10~2022.02</span>\
+                        \uc0\u48036 \u51649 \u48708 \u46356 \u50724  \u51228 \u51089  \u46041 \u50500 \u47532  '\u53356 \u47532 \u50612 \u49828 '\
+                    </li>\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2022.09~2022.12</span>\
+                        \uc0\u49436 \u50872 \u49884  \u51204 \u53685 \u49884 \u51109  \u49436 \u54252 \u53552 \u51592 \
+                    </li>\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2023.04~2024.01</span>\
+                        \uc0\u50937 \u49548 \u49444  \u51089 \u44032 /\u54532 \u47532 \u47004 \u49436 \
+                    </li>\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2023.09~2024.01</span>\
+                        \uc0\u51473 \u44397 \u50612 \u44428  \u44397 \u44032  \u50612 \u54617 \u50672 \u49688 \
+                    </li>\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2024.06~2024.08</span>\
+                        \uc0\u54056 \u49828 \u53944 \u48624  \u51228 \u51089 \u49324 \u50629 \u48376 \u48512  \u50644 \u53552 \u54016  \u51064 \u53556 \
+                    </li>\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2025.08~2025.11</span>\
+                        \uc0\u44368 \u45236  \u51088 \u44592 \u51452 \u46020 \u49444 \u44228 \u54532 \u47196 \u51229 \u53944  (SNS\u44228 \u51221  \u50868 \u50689 )\
+                    </li>\
+                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">\
+                        <span class="font-semibold block" style="color: var(--color-text-dark);">2025.09~2025.12</span>\
+                        \uc0\u49689 \u47749 \u50668 \u51088 \u45824 \u54617 \u44368  \u49828 \u45432 \u50864 \u49397  \u54665 \u51221 \u51064 \u53556  (\u54861 \u48372 /\u51060 \u48292 \u53944  \u54252 \u49828 \u53552  \u51228 \u51089  \u48143  \u54532 \u47196 \u47784 \u49496 )\
+                    </li>\
+                </ul>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Navigation Cards -->\
+    <section id="skills" class="max-w-7xl mx-auto px-6 py-20 bg-white rounded-xl shadow-sm border border-[#EDE9E0]">\
+        <h2 class="section-title text-4xl mb-12 text-center mx-auto block">\uc0\u54645 \u49900  \u50669 \u47049  \u48143  \u49828 \u53420 </h2>\
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">\
+            <a href="#ip_contents" class="skill-card p-6 rounded-xl shadow-md group">\
+                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">\
+                    <i class="fas fa-book-open text-xl"></i>\
+                </div>\
+                <h3 class="text-xl font-bold mb-2 group-hover:underline">1. IP/\uc0\u53080 \u53584 \u52768  \u51060 \u54644 </h3>\
+                <p class="text-sm text-gray-600">\uc0\u50937 \u49548 \u49444  \u51089 \u44032  \u44221 \u54744 , \u46021 \u51088  \u54980 \u53433  \u54252 \u51064 \u53944  \u48516 \u49437 </p>\
+            </a>\
+            <a href="#marketing_strategy_anchor" class="skill-card p-6 rounded-xl shadow-md group">\
+                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">\
+                    <i class="fas fa-bullhorn text-xl"></i>\
+                </div>\
+                <h3 class="text-xl font-bold mb-2 group-hover:underline">2. \uc0\u47560 \u52992 \u54021  \u51204 \u47029  \u44592 \u54925 </h3>\
+                <p class="text-sm text-gray-600">\uc0\u48652 \u47004 \u46300  \u50557 \u51216  \u49436 \u49324  \u44592 \u54925 , \u49373 \u49457 \u54805  AI \u54876 \u50857 </p>\
+            </a>\
+            <a href="#video_shortform_anchor" class="skill-card p-6 rounded-xl shadow-md group">\
+                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">\
+                    <i class="fas fa-film text-xl"></i>\
+                </div>\
+                <h3 class="text-xl font-bold mb-2 group-hover:underline">3. \uc0\u50689 \u49345 /\u49679 \u54268  \u51228 \u51089 </h3>\
+                <p class="text-sm text-gray-600">\uc0\u50976 \u53916 \u48652  \u52292 \u45328  \u50868 \u50689 , AI \u49679 \u54268  \u44305 \u44256 </p>\
+            </a>\
+            <a href="#data_ua_anchor" class="skill-card p-6 rounded-xl shadow-md group">\
+                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">\
+                    <i class="fas fa-database text-xl"></i>\
+                </div>\
+                <h3 class="text-xl font-bold mb-2 group-hover:underline">4. \uc0\u45936 \u51060 \u53552  \u44592 \u48152  UA</h3>\
+                <p class="text-sm text-gray-600">\uc0\u45348 \u51060 \u48260  \u47021 \u53433  1\u50948  \u45804 \u49457 , \u45572 \u51201  250\u47564 + PV</p>\
+            </a>\
+        </div>\
+    </section>\
+\
+    <!-- Projects Section -->\
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-20">\
+        <h2 class="section-title text-4xl mb-16 text-center mx-auto block">\uc0\u51452 \u50836  \u54532 \u47196 \u51229 \u53944  \u49345 \u49464 </h2>\
+\
+        <!-- 1. IP/\uc0\u53080 \u53584 \u52768  \u51060 \u54644  -->\
+        <div id="ip_contents" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">\
+            <h3 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">1. IP/\uc0\u53080 \u53584 \u52768  \u51060 \u54644 : \u50937 \u49548 \u49444  \u51089 \u44032  \u44221 \u54744 </h3>\
+            \
+            <!-- Image Section (Below Title) -->\
+            <div class="visual-container">\
+                <img src="https://placehold.co/600x300/F2EFE7/4A403A?text=Web+Novel+Writing" alt="\uc0\u50937 \u49548 \u49444  \u51665 \u54596  \u51060 \u48120 \u51648 ">\
+            </div>\
+\
+            <div class="space-y-4" style="color: var(--color-text-mid);">\
+                <ul class="list-disc list-outside ml-5 space-y-2 text-lg">\
+                    <li>\uc0\u52636 \u54032 \u49324 \u50752  \u44228 \u50557  \u54980  \u49548 \u49444  \u51665 \u54596 </li>\
+                    <li>\uc0\u45348 \u51060 \u48260  \u49884 \u47532 \u51592  \u53440 \u51076 \u46364  \u54532 \u47196 \u47784 \u49496  \u48155 \u50500  \u51089 \u54408  \u52636 \u44036 </li>\
+                    <li>\uc0\u44033 \u51333  \u50937  \u53080 \u53584 \u52768  \u54540 \u47019 \u54268 \u46308  \u44221 \u54744 </li>\
+                    <li>\uc0\u46021 \u51088  \u50976 \u51077  \u48516 \u49437  \u48143  \u54540 \u47019 \u54268  \u49457 \u54693  \u51452 \u47141  \u51109 \u47476  \u48516 \u49437 </li>\
+                    <li>\uc0\u46021 \u51088  \u54980 \u53433  \u54252 \u51064 \u53944  \u48516 \u49437 </li>\
+                    <li><span class="highlight-text">65\uc0\u47564  \u51312 \u54924 \u49688 </span> \u49345 \u50629  \u53080 \u53584 \u52768  \u44396 \u49345 \u44284  \u51665 \u54596 </li>\
+                </ul>\
+            </div>\
+        </div>\
+        \
+        <!-- 2. \uc0\u47560 \u52992 \u54021  \u51204 \u47029  \u44592 \u54925  -->\
+        <div id="marketing_strategy_anchor" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">\
+            <h3 class="text-3xl font-bold mb-8" style="color: var(--color-primary);">2. \uc0\u47560 \u52992 \u54021  \u51204 \u47029  \u44592 \u54925  (\u45824 \u49345  2\u54924 )</h3>\
+            \
+            <!-- CJ \uc0\u54532 \u47112 \u49884 \u50920 \u51060  -->\
+            <div class="mb-12 pb-12 border-b border-gray-200">\
+                <h4 class="text-2xl font-bold mb-2">CJ \uc0\u54532 \u47112 \u49884 \u50920 \u51060  \u45824 \u54617 \u49373  \u50808 \u49885  \u47560 \u52992 \u54021  \u50500 \u51060 \u46356 \u50612  \u52300 \u47536 \u51648  | \u45824 \u49345 </h4>\
+                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">\uc0\u48652 \u47004 \u46300 \u51032  \u50557 \u51216 \u51012  \u49828 \u53664 \u47532 \u47196  \u49444 \u44228 \u54616 \u45796 </p>\
+                \
+                <!-- Video Embed (Below Subtitle) -->\
+                <div class="visual-container">\
+                    <div class="video-container-short">\
+                        <!-- CJ Freshway Video ID: tCbv9pAHAvQ -->\
+                        <iframe src="https://www.youtube.com/embed/tCbv9pAHAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+                    </div>\
+                </div>\
+\
+                <div class="space-y-4">\
+                    <div class="info-box">\
+                        <p class="info-box-header">Problem</p>\
+                        <p class="info-box-content">\uc0\u54840 \u46497 \u44284  \u47589 \u51452 \u47484  \u54168 \u50612 \u47553 \u54620  \u48652 \u47004 \u46300  '\u54840 \u47589 '\u51008  \u49888 \u49440 \u54620  \u53080 \u49481 \u53944 \u47484  \u44032 \u51276 \u51648 \u47564 , \u45230 \u51008  \u51064 \u51648 \u46020 \u50752  \u51312 \u54633 \u51032  \u49373 \u49548 \u54632 \u51004 \u47196  \u51064 \u54644  \u49548 \u48708 \u51088 \u51032  \u51652 \u51077  \u51109 \u48317 \u51060  \u51316 \u51116 \u54664 \u49845 \u45768 \u45796 . \u53945 \u55176  '\u52824 \u47589 '\u51060 \u46972 \u45716  \u44053 \u47141 \u54620  \u44221 \u51137  \u49345 \u45824 \u47484  \u45336 \u44592  \u50948 \u54644 \u49440 , \u52376 \u51020  \u51217 \u54616 \u45716  \u51312 \u54633 \u50640  \u45824 \u54620  \u50612 \u49353 \u54632 \u51012  \u54644 \u49548 \u54624  \u51204 \u54784  \u49352 \u47196 \u50868  \u51217 \u44540  \u48169 \u49885 \u51060  \u54596 \u50836 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Solution</p>\
+                        <p class="info-box-content">\uc0\u54840 \u47589 \u51032  \u51312 \u54633 \u51060  '\u50896 \u47000 \u48512 \u53552  \u51316 \u51116 \u54664 \u45912  \u51204 \u53685 \u52376 \u47100 ' \u48372 \u51060 \u44172  \u54616 \u45716  \u49436 \u49324 \u47484  \u44592 \u54925 \u54644  \u50669 \u49324  \u53080 \u53584 \u52768  '\u54840 \u47589 \u51221 \u51020 '\u51012  \u51228 \u51089 \u54664 \u49845 \u45768 \u45796 . '\u48148 \u51060 \u53433 \u51032  \u45212 \u54028 \u47196  \u46041 \u50577 \u51032  \u54840 \u46497 \u44284  \u49436 \u50577 \u51032  \u47589 \u51452 \u44032  \u47564 \u45228 \u45796 '\u45716  \u49828 \u53664 \u47532 \u47484  \u47564 \u46308 \u44256  ImageFX, Runway. Kling \u46321  \u49373 \u49457 \u54805  AI \u53812 \u51012  \u54876 \u50857 \u54644  \u49892 \u51116 \u44048  \u51080 \u45716  \u54268  \u53080 \u53584 \u52768 \u47196  \u44396 \u54788 \u54664 \u49845 \u45768 \u45796 . \u50976 \u47672 \u50752  \u54168 \u51060 \u53356  \u45796 \u53328  \u54805 \u49885 \u51012  \u44208 \u54633 \u54644 , \u45231 \u49440  \u51312 \u54633 \u51012  \u51061 \u49689 \u54616 \u44172  \u48155 \u50500 \u46308 \u51060 \u46020 \u47197  \u50976 \u46020 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Impact & Growth</p>\
+                        <p class="info-box-content">\uc0\u49373 \u49548 \u54664 \u45912  \u49373 \u49457 \u54805  AI \u53812 \u51012  \u45130 \u51076 \u50630 \u45716  \u53456 \u44396 \u47484  \u53685 \u54644  \u54617 \u49845 \u54616 \u47728 , \u52395  \u49884 \u46020 \u51076 \u50640 \u46020  \u48520 \u44396 \u54616 \u44256  \u45458 \u51008  \u53252 \u47532 \u54000 \u51032  \u44208 \u44284 \u47932 \u47196  1\u50948 \u47484  \u45804 \u49457 \u54664 \u49845 \u45768 \u45796 . \u53080 \u53584 \u52768 \u51032  \u51204 \u47029 \u51201  \u44592 \u54925 \u44284  \u49888 \u49440 \u54632 , \u48652 \u47004 \u46300 \u51032  \u50557 \u51216 \u51012  \u49436 \u49324 \u47196  \u54400 \u50612 \u45240  \u49884 \u46020 \u50640 \u49436  \u45458 \u51008  \u54217 \u44032 \u47484  \u48155 \u50520 \u49845 \u45768 \u45796 . \u51060  \u44221 \u54744 \u51012  \u53685 \u54644  \u51200 \u45716  \u48652 \u47004 \u46300  \u47560 \u52992 \u54021 \u51060  \u45800 \u49692 \u55176  '\u50508 \u47532 \u45716  \u44163 '\u51012  \u45336 \u50612 , \u49324 \u46988 \u46308 \u51060  '\u51060 \u50556 \u44592 \u54616 \u44172  \u47564 \u46300 \u45716  \u44163 '\u51060 \u46972 \u45716  \u54869 \u49888 \u51012  \u44054 \u44172  \u46104 \u50632 \u49845 \u45768 \u45796 . \u48652 \u47004 \u46300 \u51032  \u50557 \u51216 \u51012  \u53685 \u52272 \u47196  \u51204 \u54872 \u54616 \u44256 , \u53080 \u53584 \u52768 \u47196  \u54400 \u50612  \u45236 \u45716  \u51204 \u47029 \u51008 , \u51200 \u47564 \u51032  \u44592 \u54925  \u50669 \u47049 \u51060  \u46104 \u50632 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                </div>\
+            </div>\
+\
+            <!-- KUDAF -->\
+            <div>\
+                <h4 class="text-2xl font-bold mb-2">\uc0\u45824 \u54620 \u48124 \u44397  \u45824 \u54617 \u49373  \u46356 \u51648 \u53560  \u44305 \u44256 \u51228  KUDAF | \u45824 \u49345 </h4>\
+                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">\uc0\u49679 \u54268 \u51012  \u53685 \u54644  \u54788 \u49892 \u50640 \u49436  \u44160 \u51613 \u48155 \u45716  \u53080 \u53584 \u52768 \u47484  \u47564 \u46308 \u45796 </p>\
+                \
+                <!-- Video Embed (Below Subtitle) -->\
+                <div class="visual-container">\
+                    <div class="video-container-short">\
+                        <!-- KUDAF Video ID: m0oNhyvq-nE -->\
+                        <iframe src="https://www.youtube.com/embed/m0oNhyvq-nE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+                    </div>\
+                </div>\
+\
+                <div class="space-y-4">\
+                     <div class="info-box">\
+                        <p class="info-box-header">Problem</p>\
+                        <p class="info-box-content">\uc0\u54952 \u52285 \u44277 \u50896 \u51008  \u46021 \u47549 \u50868 \u46041 \u44032 \u46308 \u51032  \u51221 \u49888 \u51060  \u44611 \u46304  \u44277 \u44036 \u51060 \u51648 \u47564 , \u51068 \u49345 \u50640 \u49436  \u49828 \u52432  \u51648 \u45208 \u44032 \u45716  \u44277 \u50896 \u51004 \u47196 \u47564  \u51064 \u49885 \u46104 \u44256  \u51080 \u49845 \u45768 \u45796 . \u53945 \u55176  \u51452 \u48320  \u51452 \u48124 \'b7\u54617 \u49373 \u52789 \u50640 \u44172 \u51312 \u52264  \u50669 \u49324 \u51201  \u51032 \u48120 \u44032  \u52649 \u48516 \u55176  \u51204 \u45804 \u46104 \u51648  \u47803 \u54616 \u44256  \u51080 \u51004 \u47728 , \u44592 \u45392 \u51068 (3\'b71\u51208  \u46321 ) \u50808 \u50640 \u45716  \u45824 \u51473 \u51032  \u44288 \u49900 \u44284  \u48169 \u47928 \u51012  \u50976 \u46020 \u54616 \u44592  \u50612 \u47157 \u45796 \u45716  \u47928 \u51228 \u47484  \u50504 \u44256  \u51080 \u49845 \u45768 \u45796 . \u49679 \u54268  \u51204 \u49457 \u49884 \u45824  \u49549 \u50640 \u49436 , \u51221 \u48372  \u51473 \u49900 \u51032  \u53080 \u53584 \u52768 \u45716  3\u52488  \u51060 \u53448 \u47456 \u51060  \u45458 \u50500  \u44288 \u49900  \u54869 \u48372  \u51088 \u52404 \u44032  \u49789 \u51648  \u50506 \u49845 \u45768 \u45796 . \u45824 \u54617  \u44540 \u52376  \u47749 \u49548 \u47484  \u49548 \u44060 \u54616 \u45716  \u51452 \u51228 \u51068 \u49688 \u47197 , \u49548 \u44060  \u54805 \u53468 \u48372 \u45796 \u45716  \u50669 \u49324 \u51201  \u49436 \u49324 \u47484  \u54952 \u44284 \u51201 \u51004 \u47196  \u51204 \u45804 \u54624  \u49352 \u47196 \u50868  \u54364 \u54788  \u48169 \u49885 \u51060  \u51208 \u49892 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Solution</p>\
+                        <p class="info-box-content">'\uc0\u49444 \u47749 \u51060  \u50500 \u45772  \u49828 \u53664 \u47532 \u53588 \u47553 '\u51012  \u51473 \u49900 \u50640  \u46160 \u44256 , \u46021 \u47549 \u50868 \u46041 \u44032 \u44032  \u54952 \u52285 \u44277 \u50896 \u50640 \u49436  \u51649 \u51217  \u47568 \u51012  \u44152 \u50612 \u50724 \u45716  \u46319 \u54620  \u49679 \u54268  \u49884 \u47532 \u51592 \u47484  \u51228 \u51089 \u54664 \u49845 \u45768 \u45796 . \u54980 \u53433 \u51012  \u50948 \u54644  AI\u47196  \u44396 \u54788 \u54620  \u46021 \u47549 \u50868 \u46041 \u44032 \u51032  \u49892 \u49324  \u47784 \u49845 \u44284  \u54788 \u51116 \u51032  \u46041 \u49345  \u51060 \u48120 \u51648  \u44368 \u52264  \u50672 \u52636 \u54664 \u51004 \u47728 , \u44048 \u51221  \u47792 \u51077 \u51012  \u50948 \u54644  \u44060 \u51064 \u51032  \u55148 \u49373 \u44284  \u44208 \u51032 \u44032  \u45812 \u44596  \u45236 \u47084 \u54000 \u48652 \u47196  \u44396 \u49457 \u54664 \u49845 \u45768 \u45796 . \u54952 \u52285 \u44277 \u50896 \u50640  \u48169 \u47928 \u51012  \u50976 \u46020 \u54616 \u45716  CTA \u47928 \u44396  '\u44536 \u44275 \u50640 \u49436  \u45796 \u49884  \u47564 \u45225 \u49884 \u45796 . \u50668 \u44592  \u54952 \u52285 \u44277 \u50896 \u50640 \u49436 '\u47484  \u54876 \u50857 \u54644 , \u44397 \u44032  \u44592 \u45392 \u51068 \u47560 \u45796  \u51088 \u50672 \u49828 \u47101 \u44172  \u46496 \u50732 \u47540  \u49688  \u51080 \u45716  \u53080 \u53584 \u52768 \u47196  \u49444 \u44228 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                     <div class="info-box">\
+                        <p class="info-box-header">Impact & Growth</p>\
+                        <p class="info-box-content">\uc0\u49679 \u54268  \u47560 \u52992 \u54021 \u50640  \u51080 \u50612 \u49436  \u51473 \u50836 \u54620  \u44148 , \u54980 \u53433 \u44284  \u49828 \u53664 \u47532 \u53588 \u47553  \u45733 \u47141 \u51076 \u51012  \u54869 \u51064 \u54616 \u45716  \u44592 \u54924 \u50688 \u49845 \u45768 \u45796 . AI\u47484  \u54876 \u50857 \u54620  \u50577 \u49328 \u54805  \u49679 \u54268 \u51060  \u47924 \u54620 \u51004 \u47196  \u49373 \u49457 \u46104 \u45716  \u49884 \u45824 \u50640 , \u49884 \u52397 \u51088 \u46308 \u50640 \u44172  \u45823 \u51012  \u51652 \u51221 \u49457  \u51080 \u45716  \u47700 \u49884 \u51648 \u50752  \u50689 \u49345  \u44592 \u54925 \u51060  \u54596 \u50836 \u54632 \u51012  \u50508 \u44172  \u46096 \u49845 \u45768 \u45796 . \u45208 \u50500 \u44032  \u49373 \u49457 \u54805  AI(Midjourney, Whisk, Kling \u46321 ) \u44592 \u49696 \u51012  \u54876 \u50857 \u54644  \u44284 \u44144  \u51064 \u47932 \u51012  \u54788 \u51116 \u50752  \u50672 \u44208 \u54616 \u45716  \u50672 \u52636 \u51012  \u44396 \u54788 \u54632 \u51004 \u47196 \u50024 , AI\u44032  \u48708 \u50857  \u51208 \u44048 \u51012  \u50948 \u54620  \u45824 \u52404 \u51116 \u44032  \u50500 \u45768 \u46972 , \u49352 \u47196 \u50868  \u53356 \u47532 \u50640 \u51060 \u54000 \u48652 \u47484  \u50668 \u45716  \u49828 \u53664 \u47532 \u53588 \u47553  \u46020 \u44396 \u51076 \u51012  \u51613 \u47749 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+\
+        <!-- 3. \uc0\u50689 \u49345 /\u49679 \u54268  \u51228 \u51089  -->\
+        <div id="video_shortform_anchor" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">\
+            <h3 class="text-3xl font-bold mb-12" style="color: var(--color-primary);">3. \uc0\u50689 \u49345 /\u49679 \u54268  \u51228 \u51089 </h3>\
+\
+            <!-- 1) Youtube -->\
+            <div class="mb-12 pb-12 border-b border-gray-200">\
+                <h4 class="text-2xl font-bold mb-2">1) \uc0\u50976 \u53916 \u48652  \u51228 \u54408  \u47532 \u48624  \u52292 \u45328  \u50868 \u50689  ('\u51092 \u52712 ')</h4>\
+                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">'\uc0\u45909 \u51656 '\u51012  \u50689 \u49345  \u53080 \u53584 \u52768 \u47196  \u45433 \u50668 \u45236 \u45796 </p>\
+                \
+                <!-- Image (Below Subtitle) -->\
+                <div class="visual-container">\
+                    <img src="https://placehold.co/600x450/F2EFE7/4A403A?text=YouTube+Review+Channel" alt="\uc0\u50976 \u53916 \u48652  \u53412 \u48372 \u46300  \u47532 \u48624 ">\
+                </div>\
+\
+                <div class="space-y-4">\
+                    <div class="info-box">\
+                        <p class="info-box-header">About</p>\
+                        <p class="info-box-content">\uc0\u54217 \u49548  \u44288 \u49900 \u51060  \u51080 \u45912  \u45936 \u49828 \u53356  \u49483 \u50629 \u51060 \u46972 \u45716  \u52712 \u48120 \u47484  \u51228 \u54408  \u47532 \u48624 \u47196  \u45433 \u50668 \u45240  \u53080 \u53584 \u52768 \u47484  \u51228 \u51089 \u54644  \u50629 \u47196 \u46300  \u54616 \u44256  \u51080 \u49845 \u45768 \u45796 . \u47560 \u51060 \u45320 \u54620  '\u53412 \u48372 \u46300 ' \u52712 \u48120 \u51060 \u51648 \u47564 , \u49464 \u48512  \u49884 \u51109 \u51012  \u44277 \u47029 \u54620  \u52292 \u45328  \u50868 \u50689 \u51004 \u47196  \u52488 \u48152  \u50689 \u49345 \u48512 \u53552  \u51068 \u51221  \u49688 \u51456  \u51060 \u49345 \u51032  \u51312 \u54924 \u49688 \u47484  \u50976 \u51648 \u54624  \u49688  \u51080 \u50632 \u49845 \u45768 \u45796 . \u51649 \u51217  \u52292 \u45328  \u44592 \u54925 \u48512 \u53552  \u50689 \u49345  \u53080 \u54000  \u51089 \u49457 , \u52524 \u50689 , \u45433 \u51020 , \u54200 \u51665 \u51012  \u47585 \u50520 \u49845 \u45768 \u45796 . \u47751 \u47751  \u48652 \u47004 \u46300 \u50640 \u44172  \u51228 \u54408 \u51012  \u51228 \u44277  \u48155 \u44256  \u51228 \u51089 \u48708 \u47484  \u51648 \u50896 \u48155 \u50500  \u47532 \u48624  \u50689 \u49345 \u51012  \u51228 \u51089 \u54664 \u49845 \u45768 \u45796 . \u48652 \u47004 \u46300 \u44032  \u50896 \u54616 \u45716  \u48169 \u54693 \u44284  \u49548 \u44396 \u51216 , \u51228 \u54408  \u49444 \u47749  \u46321 \u51012  \u52280 \u44256 \u54616 \u50668  \u54801 \u50629 \u51012  \u51652 \u54665 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Impact & Growth</p>\
+                        <p class="info-box-content">\uc0\u50976 \u51077 \u51012  \u45720 \u47540  \u49688  \u51080 \u45716  \u50976 \u53916 \u48652  \u50040 \u45348 \u51068  \u51228 \u51089 \u44284  \u51228 \u47785 , \u49548 \u44060 \u44544  \u49444 \u51221 \u51012  \u48516 \u49437  \u54980  \u51201 \u50857 \u54644  \u50772 \u49845 \u45768 \u45796 . \u51649 \u51217  \u48652 \u47004 \u46300 \u50752 \u51032  \u54801 \u50629  \u44284 \u51221 \u50640 \u49436  \u51652 \u54665 \u46104 \u45716  \u52964 \u48036 \u45768 \u52992 \u51060 \u49496 \u44284  \u51089 \u50629  \u49828 \u52992 \u51460  \u51312 \u51221 , \u51228 \u54408  \u47532 \u48624  \u53080 \u54000 \u50504  \u51228 \u51089 \u44284  \u44160 \u49688  \u45800 \u44228 \u47484  \u44221 \u54744 \u54644 \u48380  \u49688  \u51080 \u50632 \u49845 \u45768 \u45796 . \u53944 \u47000 \u54589 \u51060  \u51201 \u51008  \u49464 \u48512  \u49884 \u51109 \u51012  \u44277 \u47029 \u54644  \u51312 \u54924 \u49688 \u47484  \u51060 \u45132 \u50612 \u45236 \u44592  \u50948 \u54644 \u49436 \u45716 , \u54644 \u45817  \u53944 \u47000 \u54589 \u51060  \u50612 \u45712  \u50689 \u49345 \u51004 \u47196  \u54693 \u54616 \u45716 \u51648  \u47784 \u45768 \u53552 \u47553  \u44284 \u51221 \u51060  \u54596 \u49688 \u51076 \u51012  \u50508 \u44172  \u46096 \u49845 \u45768 \u45796 . \u51060 \u54980  \u54616 \u45208 \u51032  \u50689 \u49345  \u51228 \u51089 \u51012  \u50948 \u54620  \u51204 \u48152 \u51201 \u51064  \u44592 \u54925 \u44284  \u51228 \u51089  \u44284 \u51221 \u51012  \u54844 \u51088 \u49436  \u51652 \u54665 \u54624  \u49688  \u51080 \u45716  \u45733 \u47141 \u51012  \u54693 \u49345 \u49884 \u53420  \u49688  \u51080 \u50632 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <a href="https://www.youtube.com/@Zanqu" target="_blank" class="inline-block font-semibold mt-4 text-base" style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary);">\
+                        \uc0\u52292 \u45328  \u47553 \u53356 : https://www.youtube.com/@Zanqu <i class="fas fa-external-link-alt ml-1"></i>\
+                    </a>\
+                </div>\
+            </div>\
+\
+            <!-- 2) SNS -->\
+            <div class="mb-12 pb-12 border-b border-gray-200">\
+                <h4 class="text-2xl font-bold mb-2">2) \uc0\u49828 \u53664 \u47532 \u53588 \u47553  \u44592 \u48152  SNS \u44228 \u51221  \u50868 \u50689 </h4>\
+                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">'\uc0\u50032 '\u44284  '\u49324 \u46993 ', 'AI'\u51032  \u51312 \u54633 </p>\
+                \
+                <!-- Image (Below Subtitle) -->\
+                <div class="visual-container">\
+                    <img src="https://placehold.co/600x450/F2EFE7/4A403A?text=SNS+Feed+Layout" alt="SNS \uc0\u54588 \u46300 ">\
+                </div>\
+\
+                <div class="space-y-4">\
+                    <div class="info-box">\
+                        <p class="info-box-header">About</p>\
+                        <p class="info-box-content">\uc0\u44368 \u45236  \u51088 \u44592 \u51452 \u46020 \u51652 \u47196 \u54532 \u47196 \u51229 \u53944 \u51032  \u51068 \u54872 \u51004 \u47196 , \u51649 \u51217  \u49345 \u50629 \u51201 \u51004 \u47196  \u54876 \u50857  \u44032 \u45733 \u54620  SNS \u44228 \u51221 \u51012  \u50868 \u50689 \u54664 \u49845 \u45768 \u45796 . \u44033 \u51333  \u52964 \u48036 \u45768 \u54000 \u45208  \u54540 \u47019 \u54268 \u50640  \u51080 \u45716  \u45796 \u50577 \u54620  \u51060 \u50556 \u44592 \u46308 \u51012  \u49548 \u49905 \u54644  \u49352 \u47196 \u50868  \u49828 \u53664 \u47532 \u47196  \u51116 \u44396 \u49457 , \u51060 \u47484  AI\u47484  \u54876 \u50857 \u54620  \u50689 \u49345 \u51004 \u47196  \u51228 \u51089 \u54664 \u49845 \u45768 \u45796 . \u51060 \u50808 \u50640 \u46020 , \u44277 \u50976 \u54616 \u44592  \u51339 \u51008  \u52880 \u47084 \u49472 \u51012  \u51228 \u51089 \u54616 \u44256  \u49828 \u53664 \u47532 \u53588 \u47553  \u44592 \u48152 \u51032  \u53080 \u53584 \u52768 \u50640  \u52488 \u51216 \u51012  \u47582 \u52628 \u50612  \u44592 \u54925  \u45733 \u47141 \u51012  \u44592 \u47484  \u49688  \u51080 \u50632 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Impact & Growth</p>\
+                        <p class="info-box-content">\uc0\u45800 \u49692  \u51228 \u51089 \u51060  \u50500 \u45772  \u48652 \u47004 \u46377 , \u53080 \u53584 \u52768  \u50868 \u50689 \'b7\u50976 \u53685 \'b7\u48516 \u49437 \u44620 \u51648  \u51204  \u44284 \u51221  \u44221 \u54744 \u54616 \u47728  \u51204 \u48152 \u51201  \u53080 \u53584 \u52768  \u49884 \u51109 \u50640  \u45824 \u54620  \u51060 \u54644 \u46020 \u47484  \u54693 \u49345 \u49884 \u53040 \u49845 \u45768 \u45796 . AI\u47484  \u54876 \u50857 \u54620  \u49828 \u53664 \u47532  \u44592 \u48152  \u49679 \u54268  \u51228 \u51089 \u51012  \u53685 \u54644  \u53080 \u53584 \u52768  \u48143  IP \u44592 \u54925  \u50669 \u47049  \u54869 \u48372 , IP \u49328 \u50629  \u44396 \u51312 \u50640  \u45824 \u54620  \u49884 \u50556  \u54869 \u51109 \u51012  \u48148 \u53461 \u51004 \u47196  \u53080 \u53584 \u52768  \u47560 \u52992 \u54021  \u51649 \u47924 \u50752  \u50672 \u44208 \u46104 \u45716  \u50669 \u47049 \u51012  \u44053 \u54868 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <a href="https://www.instagram.com/nemo.story_/" target="_blank" class="inline-block font-semibold mt-4 text-base" style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary);">\
+                        Instagram: @nemo.story_ <i class="fas fa-external-link-alt ml-1"></i>\
+                    </a>\
+                </div>\
+            </div>\
+\
+            <!-- 3) Horror Game -->\
+            <div class="mb-12 pb-12 border-b border-gray-200">\
+                <h4 class="text-2xl font-bold mb-2">3) \uc0\u50976 \u53916 \u48652  \u49440 \u53469 \u54805  \u44277 \u54252 \u44172 \u51076  \u53080 \u53584 \u52768  \u44592 \u54925 </h4>\
+                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">\uc0\u48372 \u45716  \u53080 \u53584 \u52768 \u47484 , '\u52280 \u50668 \u54616 \u45716  \u53080 \u53584 \u52768 '\u47196  \u48148 \u44984 \u45796 </p>\
+                \
+                <!-- Image (Below Subtitle) -->\
+                <div class="visual-container">\
+                    <img src="https://placehold.co/600x450/F2EFE7/4A403A?text=Interactive+Horror+Game" alt="\uc0\u49440 \u53469 \u54805  \u44277 \u54252 \u44172 \u51076 ">\
+                </div>\
+\
+                <div class="space-y-4">\
+                    <div class="info-box">\
+                        <p class="info-box-header">Problem</p>\
+                        <p class="info-box-content">\uc0\u50808 \u44397  \u49888 \u54868  \u49549  \u50836 \u44340 \u46308 \u51008  \u45796 \u50577 \u54620  \u53080 \u53584 \u52768 \u47196  \u51116 \u54644 \u49437 \u46104 \u50612  \u45328 \u47532  \u50508 \u47140 \u51652  \u48152 \u47732 , \u54620 \u44397  \u49888 \u54868  \u49549  \u50836 \u44340 \u46308 \u51008  \u45824 \u51473 \u51201  \u51064 \u49885 \u51060  \u45230 \u44256  \u55141 \u48120  \u50976 \u48156  \u50836 \u49548 \u44032  \u48512 \u51313 \u54664 \u49845 \u45768 \u45796 . \u51060 \u47484  \u46608 \u47000  \u54617 \u49373 \u46308 \u50640 \u44172  \u55141 \u48120 \u47213 \u44172  \u51204 \u45804 \u54616 \u44592  \u50948 \u54644 \u49436 \u45716  \u54788 \u45824 \u51201  \u51116 \u44396 \u49457 \u44284  \u52828 \u49689 \u54620  \u47588 \u52404  \u54876 \u50857 \u51060  \u54596 \u49688 \u46972 \u44256  \u54032 \u45800 \u54664 \u49845 \u45768 \u45796 . \u44536 \u46308 \u50640 \u44172  \u51061 \u49689 \u54620  \u48169 \u49885 \u51004 \u47196  \u47792 \u51077 \u44048  \u51080 \u44172  \u51217 \u44540 \u54624  \u53080 \u53584 \u52768  \u44396 \u51312 \u44032  \u54596 \u50836 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Solution</p>\
+                        <p class="info-box-content">\uc0\u46384 \u46972 \u49436  \u50976 \u53916 \u48652  \u52628 \u52380  \u50689 \u49345  \u44592 \u45733 \u51012  \u54876 \u50857 \u54620  \u49440 \u53469 \u54805  \u52280 \u50668  \u44172 \u51076 \u51012  \u44592 \u54925 \u54664 \u49845 \u45768 \u45796 . \u54617 \u44368 \u46972 \u45716  \u44277 \u44036 \u44284  \u50976 \u53916 \u48652 \u46972 \u45716  \u47588 \u52404 \u47484  \u44208 \u54633 \u54644 , \u54540 \u47112 \u51060 \u50612 \u51032  \u49440 \u53469 \u50640  \u46384 \u46972  \u44208 \u47568 \u51060  \u45804 \u46972 \u51648 \u45716  \u44396 \u51312 \u47196  \u47792 \u51077 \u44048 \u51012  \u44537 \u45824 \u54868 \u54664 \u49845 \u45768 \u45796 . \u52524 \u50689 \u44284  \u54200 \u51665 \u51012  \u45812 \u45817 \u54644  \u44277 \u54252 \u44048 \u51012  \u45458 \u51060 \u44592  \u50948 \u54644  1\u51064 \u52845  \u49884 \u51216 \u44284  \u49324 \u50868 \u46300  \u50672 \u52636 \u51012  \u45908 \u54664 \u51004 \u47728 , \u52880 \u47533 \u53552  \u44415 \u51592 \u47484  \u44592 \u54925 \u54644  \u52964 \u48036 \u45768 \u54000  \u52280 \u50668 \u50752  \u54588 \u46300 \u48177  \u49688 \u51665 \u44620 \u51648  \u44256 \u47140 \u54620  \u54869 \u49328 \u54805  \u44396 \u51312 \u47484  \u49892 \u54665 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Impact & Growth</p>\
+                        <p class="info-box-content">\uc0\u49892 \u51228  \u50976 \u53916 \u48652  \u52292 \u45328  \u50868 \u50689 , 1,300\u54924  \u51060 \u49345 \u51032  \u51312 \u54924 \u49688 \u50752  60\u44060  \u51060 \u49345 \u51032  \u45843 \u44544  \u50976 \u46020  \u52509  21\u44060 \u51032  \u50689 \u49345 \u51012  \u51649 \u51217  \u44592 \u54925 \'b7\u51228 \u51089 \u54616 \u47728  \u52280 \u50668 \u54805  \u53080 \u53584 \u52768  \u44396 \u51312 \u47484  \u49444 \u44228 \u54664 \u49845 \u45768 \u45796 . \u45800 \u49692  \u51221 \u48372  \u51204 \u45804 \u51012  \u45336 \u50612 , \u49324 \u50857 \u51088 \u51032  \u52280 \u50668 \u47484  \u50976 \u46020 \u54616 \u45716  \u51064 \u53552 \u47001 \u54000 \u48652  \u53080 \u53584 \u52768 \u47484  \u49892 \u54788 \u54620  \u44221 \u54744 \u51060 \u50632 \u49845 \u45768 \u45796 . \u51204 \u53685  \u49888 \u54868 \u47484  \u45440 \u51060 \u54868 \u54620  \u49884 \u46020 \u45716  \u54617 \u50864 \u46308 \u51032  \u54253 \u48156 \u51201 \u51064  \u48152 \u51025 \u51012  \u51060 \u45132 \u50612 \u45256 \u49845 \u45768 \u45796 . Z\u49464 \u45824  \u53440 \u44611  \u53080 \u53584 \u52768 \u47484  \u51204 \u47029 \u51201 \u51004 \u47196  \u44592 \u54925 \u54616 \u44256  \u54869 \u49328 \u49884 \u53412 \u45716  \u49892 \u51204  \u44048 \u44033 \u51012  \u53412 \u50872  \u49688  \u51080 \u50632 \u49845 \u45768 \u45796 . \u45231 \u49440  \u51452 \u51228 \u47484  \u45908  \u44032 \u44637 \u44256  \u51061 \u49689 \u54620  \u48169 \u49885 \u51004 \u47196  \u49352 \u47213 \u44172  \u54400 \u50612 \u45236 \u45716  \u44592 \u54925  \u50669 \u47049 \u44284  \u46020 \u51204  \u51221 \u49888 \u51012  \u54632 \u44760  \u49457 \u51109 \u49884 \u53416  \u54532 \u47196 \u51229 \u53944 \u50688 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <a href="https://youtu.be/IWuy4RnAlag?si=5N-u02mtyeiQROTc" target="_blank" class="inline-block font-semibold mt-4 text-base" style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary);">\
+                        \uc0\u44172 \u51076  \u50689 \u49345  \u47553 \u53356  <i class="fas fa-external-link-alt ml-1"></i>\
+                    </a>\
+                </div>\
+            </div>\
+\
+            <!-- 4) AI Ad -->\
+            <div>\
+                <h4 class="text-2xl font-bold mb-2">4) \uc0\u48652 \u47004 \u46300  \u51228 \u54408  AI \u49679 \u54268  \u44305 \u44256  (\u44277 \u47784 \u51204 )</h4>\
+                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">\uc0\u51228 \u54408 \u51032  \u54645 \u49900  \u44592 \u45733 \u51012  \u49828 \u53664 \u47532 \u47196  \u54400 \u50612 \u45236 \u45796 </p>\
+                \
+                <!-- Video Embed (Below Subtitle) -->\
+                <div class="visual-container">\
+                    <div class="video-container-short">\
+                        <!-- AI Ad Video ID: ZrpyisT9WhQ -->\
+                        <iframe src="https://www.youtube.com/embed/ZrpyisT9WhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+                    </div>\
+                </div>\
+\
+                <div class="space-y-4">\
+                    <div class="info-box">\
+                        <p class="info-box-header">Problem</p>\
+                        <p class="info-box-content">\uc0\u48652 \u47004 \u46300  \u51088 \u52404 \u50640 \u49436  \u51228 \u50504 \u54620  \u50689 \u49345 \u51032  \u52968 \u49481 \u51060  '\u44480 \u50685 \u44256  \u46384 \u46907 \u54620 ' \u47924 \u46300 \u50688 \u51004 \u47728 , \u46041 \u47932  \u52880 \u47533 \u53552  \u46321 \u51012  \u54876 \u50857 \u54620  \u46972 \u51060 \u53944 \u54620  \u49679 \u54268  \u50689 \u49345 \u51060 \u50632 \u49845 \u45768 \u45796 . \u54616 \u51648 \u47564  \u52572 \u44540  ai\u47484  \u54876 \u50857 \u54620  \u52880 \u47533 \u53552  \u50689 \u49345 \u51060  \u50143 \u50500 \u51648 \u44256  \u51080 \u51004 \u47728  ai\u50640  \u45824 \u54620  \u54588 \u47196 \u46020 \u44032  \u51312 \u44552 \u50473  \u45572 \u51201 \u46104 \u44256  \u51080 \u45716  \u49345 \u54889 \u50640 \u49436 , \u53440 \u44611 \u52789 \u51064  2-30\u45824  \u50668 \u49457 \u50640 \u44172  \u45908 \u50865  \u54952 \u44284 \u51201 \u51004 \u47196  \u45796 \u44032 \u44040  \u48169 \u48277 \u51060  \u54596 \u50836 \u54664 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                    <div class="info-box">\
+                        <p class="info-box-header">Solution</p>\
+                        <p class="info-box-content">\uc0\u53440 \u44611 \u51064  2-30\u45824  \u50668 \u49457 \u51060  \u51088 \u50672 \u49828 \u47101 \u44172  \u44277 \u44048 \u54624  \u49688  \u51080 \u45716  \u49892 \u49324  \u46041 \u47932  \u45796 \u53328 \u51032  \u54805 \u49885 \u51012  \u52264 \u50857 \u54644 , AI \u53945 \u50976 \u51032  \u51060 \u51656 \u44048 \u51012  \u52572 \u49548 \u54868 \u54616 \u44256  \u44480 \u50685 \u44256  \u54200 \u50504 \u54620  \u49679 \u54268 \u51012  \u44592 \u54925 \u54664 \u49845 \u45768 \u45796 . \u49892 \u49324  \u44592 \u48152 \u51032  \u47532 \u50620 \u47532 \u54000 \u50752  AI\u44032  \u44396 \u54788 \u54624  \u49688  \u51080 \u45716  \u46021 \u52285 \u51201  \u46041 \u51089  \u49324 \u51060 \u51032  \u44221 \u44228 \u47484  \u51221 \u44368 \u54616 \u44172  \u51312 \u50984 \u54644  \u53080 \u53584 \u52768 \u47484  \u51228 \u51089 \u54664 \u51004 \u47728 , \u51060 \u47484  \u53685 \u54644  AI\u47564 \u51060  \u54624  \u49688  \u51080 \u45716  \u44163 \u44284  \u44536 \u47111 \u51648  \u47803 \u54620  \u51648 \u51216 \u51012  \u51221 \u54869 \u54616 \u44172  \u54028 \u50501 \u54616 \u44256  \u54876 \u50857 \u54616 \u45716  \u50669 \u47049 \u51012  \u44054 \u52628 \u44172  \u46104 \u50632 \u49845 \u45768 \u45796 .</p>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+\
+        <!-- 4. \uc0\u45936 \u51060 \u53552  \u44592 \u48152  UA -->\
+        <div id="data_ua_anchor" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">\
+            <h3 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">4. \uc0\u45936 \u51060 \u53552  \u44592 \u48152  UA: \u45348 \u51060 \u48260  \u47021 \u53433  1\u50948  \u45804 \u49457 </h3>\
+            \
+            <!-- Image (Below Title) -->\
+            <div class="visual-container">\
+                <img src="https://placehold.co/400x300/F2EFE7/4A403A?text=Naver+Ranking" alt="\uc0\u45348 \u51060 \u48260  \u47021 \u53433  1\u50948 ">\
+            </div>\
+\
+            <div class="space-y-4" style="color: var(--color-text-mid);">\
+                <ul class="list-disc list-outside ml-5 space-y-3 text-lg">\
+                    <li><span class="font-bold" style="color: var(--color-primary);">PV \uc0\u49457 \u44284 :</span> \u45348 \u51060 \u48260 , MSN \u46321 \u50640  \u50672 \u50696 \u48512  \u44592 \u49324 \u47484  \u51089 \u49457 \u54616 \u50668  <span class="highlight-text">\u45572 \u51201  2,572,876\u54924  \u45804 \u49457 </span>. (\u51221 \u47049 \u51201  UA \u49457 \u44284 )</li>\
+                    <li><span class="font-bold" style="color: var(--color-primary);">\uc0\u52572 \u44256  \u49457 \u44284 :</span> \u48372 \u46020 \u51088 \u47308  \u44592 \u48152  \u48660 \u47001 \u54609 \u53356  \u51333 \u54633  \u44592 \u49324 \u47196  \u54616 \u47336  \u47564 \u50640  <span class="highlight-text">\u45348 \u51060 \u48260  \u47021 \u53433  1\u50948 </span> \u52264 \u51648 \u54616 \u47728  \u53080 \u53584 \u52768  \u50976 \u53685  \u48143  UA \u54952 \u50984 \u49457  \u51077 \u51613 , \u44200 \u50872 \u50773 \u44397  \u50808 \u49888  \u44592 \u49324 \u47196  \u45348 \u51060 \u48260  \u50672 \u50696  \u54168 \u51060 \u51648  \u47700 \u51064 \u50640  \u46321 \u47197 </li>\
+                    <li><span class="font-bold" style="color: var(--color-primary);">\uc0\u50669 \u47049 :</span> \u51060 \u49800  \u48156 \u44404  \u48143  \u54540 \u47019 \u54268  \u53945 \u49457 \u50640  \u47582 \u52632  \u53080 \u53584 \u52768  \u52572 \u51201 \u54868  \u49892 \u54665 .</li>\
+                </ul>\
+                <div class="flex gap-4 pt-4">\
+                    <a href="https://m.entertain.naver.com/home/article/213/0001300836" target="_blank" class="text-base font-semibold" style="color: var(--color-primary); border-bottom: 1px solid var(--color-secondary);">\uc0\u48660 \u47001 \u54609 \u53356  \u44592 \u49324  <i class="fas fa-external-link-alt"></i></a>\
+                    <a href="https://m.entertain.naver.com/home/article/213/0001305887" target="_blank" class="text-base font-semibold" style="color: var(--color-primary); border-bottom: 1px solid var(--color-secondary);">\uc0\u44200 \u50872 \u50773 \u44397  \u44592 \u49324  <i class="fas fa-external-link-alt"></i></a>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <!-- Contact -->\
+    <footer id="contact" class="py-12" style="background-color: var(--color-text-dark);">\
+        <div class="max-w-7xl mx-auto px-6 text-center text-white">\
+            <h3 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">Contact</h3>\
+            <p class="text-xl mb-2">twinab0809@naver.com</p>\
+            <p class="text-xl mb-6">010-3371-2981</p>\
+            <p class="text-sm mt-8" style="color: #A0968F;">\uc0\u46020 \u51204 \u51008  \u45208 \u47484  \u49457 \u51109 \u49884 \u53416 \u45796 \u45716  \u54869 \u49888 \u51004 \u47196 , \u53080 \u53584 \u52768 \u47484  \u53685 \u54644  \u49440 \u54620  \u50689 \u54693 \u47141 \u51012  \u51204 \u45804 \u54616 \u44192 \u49845 \u45768 \u45796 .</p>\
+        </div>\
+    </footer>\
+\
+    <script>\
+        document.getElementById('mobile-menu-button').addEventListener('click', function() \{\
+            var mobileMenu = document.getElementById('mobile-menu');\
+            mobileMenu.classList.toggle('hidden');\
+        \});\
+\
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => \{\
+            anchor.addEventListener('click', function (e) \{\
+                e.preventDefault();\
+                const targetId = this.getAttribute('href');\
+                const targetElement = document.querySelector(targetId);\
+                if (targetElement) \{\
+                    const navHeight = document.querySelector('nav').offsetHeight;\
+                    const targetPosition = targetElement.offsetTop - navHeight;\
+                    window.scrollTo(\{ top: targetPosition, behavior: 'smooth' \});\
+                \}\
+            \});\
+        \});\
+\
+        const observer = new IntersectionObserver((entries) => \{\
+            entries.forEach(entry => \{\
+                if (entry.isIntersecting) \{\
+                    entry.target.style.width = entry.target.getAttribute('style').match(/width:\\s*(\\d+%)/)[1];\
+                \}\
+            \});\
+        \}, \{ threshold: 0.5 \});\
+\
+        document.querySelectorAll('.progress-bar').forEach(bar => \{\
+            const width = bar.style.width;\
+            bar.style.width = '0';\
+            setTimeout(() => \{ bar.style.width = width; \}, 500);\
+        \});\
+    </script>\
+</body>\
+</html>}
