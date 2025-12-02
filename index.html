@@ -33,7 +33,10 @@
         body {
             font-family: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--color-background);
+            background:
+                radial-gradient(circle at top left, rgba(250, 204, 21, 0.14), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(253, 224, 71, 0.1), transparent 55%),
+                var(--color-background);
             color: var(--color-text-main);
             line-height: 1.75;
             -webkit-font-smoothing: antialiased;
@@ -98,8 +101,16 @@
 
         /* 2. Navigation - 화이트 상단바 */
         nav {
-            background-color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.94);
             border-bottom: 1px solid #E5E7EB;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        nav:hover {
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            border-color: rgba(226, 232, 240, 0.9);
         }
 
         .nav-link {
@@ -109,6 +120,7 @@
             font-size: 0.78rem;
             text-transform: uppercase;
             color: #6B7280;
+            transition: color 0.18s ease, opacity 0.18s ease;
         }
 
         .nav-link::after {
@@ -125,6 +137,20 @@
 
         .nav-link:hover::after {
             width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #111827 !important;
+            opacity: 1;
+        }
+
+        nav a.text-3xl {
+            transition: transform 0.18s ease, color 0.18s ease;
+        }
+
+        nav a.text-3xl:hover {
+            transform: translateY(-1px);
+            color: #111827;
         }
 
         /* Tailwind 기본 text-white는 어두운 배경용이라, 여기선 검정 계열로 덮어쓰기 */
@@ -173,22 +199,45 @@
         .hero-section img[alt="Profile"] {
             border-radius: 20px;
             border: 1px solid #E5E7EB;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
             width: 19rem;
             height: auto;
             object-fit: contain;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
 
         .hero-section .relative > .absolute {
             background-color: #FEF9C3;
             border-radius: 999px;
-            filter: blur(16px);
+            filter: blur(20px);
             opacity: 0.7;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hero-section .relative:hover img[alt="Profile"] {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 22px 55px rgba(15, 23, 42, 0.26);
+            border-color: rgba(250, 204, 21, 0.7);
+        }
+
+        .hero-section .relative:hover > .absolute {
+            opacity: 0.9;
+            transform: scale(1.05);
         }
 
         /* Awards 카드들 (라이트 카드) */
         .bg-[#F5F5F5] {
             background-color: #F5F5F5 !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+            border-radius: 14px !important;
+            border: 1px solid rgba(229, 231, 235, 0.9);
+        }
+
+        .bg-[#F5F5F5]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+            background-color: #F9FAFB !important;
+            border-color: rgba(250, 204, 21, 0.45);
         }
 
         /* 5. Info Box & Project 카드 */
@@ -200,6 +249,14 @@
             margin-bottom: 1.5rem;
             border-radius: 14px;
             box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+            border-color: rgba(250, 204, 21, 0.7);
+            background-color: #FFFBEB;
         }
 
         /* Problem / Solution / Impact & Growth 포인트 처리 */
@@ -242,6 +299,17 @@
             border-radius: 18px;
             border: 1px solid #E5E7EB;
             box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+        }
+
+        #ip_contents:hover,
+        #marketing_strategy_anchor:hover,
+        #video_shortform_anchor:hover,
+        #data_ua_anchor:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 56px rgba(15, 23, 42, 0.18);
+            border-color: rgba(250, 204, 21, 0.65);
+            background-color: #FDFDFB;
         }
 
         #ip_contents > .flex span,
@@ -267,6 +335,7 @@
             width: 100%;
             border: 1px solid #E5E7EB;
             font-size: 0.95rem;
+            cursor: pointer;
         }
 
         .link-btn span {
@@ -280,10 +349,10 @@
         }
 
         .link-btn:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             border-color: var(--color-primary);
             background-color: #FFFBEB;
-            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
         }
 
         .link-btn:hover i.link-arrow {
@@ -308,6 +377,14 @@
             transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .skill-item {
+            transition: transform 0.18s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+
         /* 8. 이미지 스타일 (전체적으로 더 크게) */
         .img-container { 
             margin: 1.2rem 0; 
@@ -325,6 +402,13 @@
             max-width: 100%; 
             object-fit: cover; 
             height: auto; 
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .img-container img:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+            border-color: rgba(250, 204, 21, 0.6);
         }
         
         .img-constrained { 
@@ -334,6 +418,16 @@
             margin: 0 auto; 
             display: block; 
             object-fit: contain; 
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .img-constrained:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.2);
+            border-color: rgba(250, 204, 21, 0.6);
         }
 
         .img-constrained-full { 
@@ -343,6 +437,16 @@
             margin: 0 auto; 
             display: block; 
             object-fit: contain; 
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .img-constrained-full:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.2);
+            border-color: rgba(250, 204, 21, 0.6);
         }
         
         .img-row { 
@@ -364,7 +468,14 @@
             max-width: 100%; 
             border-radius: 16px;
             border: 1px solid #E5E7EB; 
-            box-shadow: 0 10px 24px rgba(15,23,42,0.05); 
+            box-shadow: 0 10px 24px rgba(15,23,42,0.08); 
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .img-row img:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 46px rgba(15,23,42,0.22);
+            border-color: rgba(250, 204, 21, 0.7);
         }
 
         .review-layout { 
@@ -372,6 +483,12 @@
             grid-template-columns: 1.1fr 1.5fr; 
             gap: 2rem; 
             align-items: start; 
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .review-layout:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.16);
         }
 
         .review-layout .side-imgs { 
@@ -386,8 +503,15 @@
             height: auto; 
             border-radius: 16px;
             border: 1px solid #E5E7EB; 
-            box-shadow: 0 10px 24px rgba(15,23,42,0.05); 
+            box-shadow: 0 10px 24px rgba(15,23,42,0.08); 
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
         } 
+
+        .review-layout .side-imgs img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.2);
+            border-color: rgba(250, 204, 21, 0.7);
+        }
 
         /* 9. Core Competencies Navigation (화이트+옐로우) */
         .core-nav {
@@ -415,10 +539,12 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
 
         .core-nav .grid a span.emoji {
             font-size: 1.2rem;
+            transition: transform 0.18s ease;
         }
 
         .core-nav .grid a:hover {
@@ -427,6 +553,10 @@
             color: #111827;
             background-color: #FFFBEB;
             box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+        }
+
+        .core-nav .grid a:hover span.emoji {
+            transform: translateY(-1px) scale(1.05);
         }
 
         /* 10. Projects Section 배경 */
@@ -442,6 +572,14 @@
 
         footer p {
             color: #6B7280 !important;
+        }
+
+        footer h2 {
+            transition: transform 0.2s ease;
+        }
+
+        footer h2:hover {
+            transform: translateY(-2px);
         }
 
         /* 12. Mobile */
@@ -769,7 +907,7 @@
                             <h5>Problem</h5>
                             <p>평소 관심이 있던 데스크 셋업이라는 취미를 제품 리뷰로 녹여낸 콘텐츠를 제작해 업로드하고 싶었으나, 마이너한 '키보드' 취미로 콘텐츠 파생에 한계가 있었습니다. 게다가 이미 해당 카테고리에서 자리를 잡은 유명 크리에이터들이 많았습니다. 이 카테고리를 즐겨 찾는 시청자들 풀이 좁기 때문에 이에 맞는 콘텐츠를 구상해야 했습니다.</p>
                         </div>
-<div class="info-box mb-6 p-4">
+                        <div class="info-box mb-6 p-4">
                             <h5>solution</h5>
                             <p>세부 시장을 공략한 채널 운영이 메리트가 될 수 있도록, 이미 일정 트래픽을 보유하고 있는 작은 규모의 키보드 브랜드를 활용하기로 했습니다. 이후 브랜드 사의 제품을 모두 비교하는 영상을 제작해 업로드 후, 브랜드 자체 채널에 링크가 되고, 초반 영상부터 일정 수준 이상의 조회수를 유지할 수 있었습니다.</p>
                         </div>
@@ -830,7 +968,7 @@
                         <h5>Impact & Growth</h5>
                         <p>실제 유튜브 채널 운영, 1,300회 이상의 조회수와 60개 이상의 댓글 유도 총 21개의 영상을 직접 기획·제작하며 참여형 콘텐츠 구조를 설계했습니다. 단순 정보 전달을 넘어, 사용자의 참여를 유도하는 인터랙티브 콘텐츠를 실현한 경험이었습니다. 전통 신화를 놀이화한 시도는 학우들의 폭발적인 반응을 이끌어냈습니다. Z세대 타깃 콘텐츠를 전략적으로 기획하고 확산시키는 실전 감각을 키울 수 있었습니다. 낯선 주제를 더 가깝고 익숙한 방식으로 새롭게 풀어내는 기획 역량과 도전 정신을 함께 성장시킨 프로젝트였습니다.</p>
                     </div>
-                    <a href="https://youtu.be/IWuy4RnA1ag?si=N1h7WthVVyVTZZFl" target="_blank" class="link-btn">
+                    <a href="https://youtu.be/IWuy4RnA1ag?si=OcL65o4N9_n4lRYb" target="_blank" class="link-btn">
                         <span><i class="fab fa-youtube text-red-500 text-xl mr-3"></i> 게임 영상 링크 (YouTube)</span>
                         <i class="fas fa-arrow-right link-arrow"></i>
                     </a>
