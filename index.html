@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김산하 (SANHA KIM) 포트폴리오 - Premium Black & Gold</title>
+
+    <!-- Tailwind & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 🔗 SNS / 메신저 썸네일용 Open Graph (이미지 URL은 나중에 직접 채워 넣기) -->
+    <meta property="og:title" content="김산하 (SANHA KIM) 포트폴리오">
+    <meta property="og:description" content="콘텐츠 기획 · 영상/숏폼 제작 · 데이터 기반 UA 포트폴리오">
+    <meta property="og:type" content="website">
+    <!-- 여기 content="" 안에 나중에 썸네일로 쓸 이미지의 절대 URL을 넣으면 됨 -->
+    <meta property="og:image" content="">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="김산하 (SANHA KIM) 포트폴리오">
+    <meta name="twitter:description" content="콘텐츠 기획 · 영상/숏폼 제작 · 데이터 기반 UA 포트폴리오">
+    <!-- 여기도 같은 이미지 URL로 맞춰주면 좋아 -->
+    <meta name="twitter:image" content="">
+
     <style>
         /* 폰트: Pretendard (세련된 고딕) 사용 */
-
-        /* 아무 내용도 건들지 말고 디자인만 바꿔줘!!!! 너가 알아서 세련된 요즘 느낌으로 디자인해봐. 앞에 말한 거 잊고! 디자인만 바꿔달라고 했어..!! */
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
-        /* 1. White & Yellow Minimal Theme */
+        /* 1. White & Yellow Minimal + Soft Gradient Theme */
         :root {
             --color-primary: #FACC15;   /* 메인 옐로우 */
             --color-secondary: #FDBA28; /* 서브 옐로우 */
@@ -34,8 +48,8 @@
             font-family: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
             scroll-behavior: smooth;
             background:
-                radial-gradient(circle at top left, rgba(250, 204, 21, 0.14), transparent 55%),
-                radial-gradient(circle at bottom right, rgba(253, 224, 71, 0.1), transparent 55%),
+                radial-gradient(circle at 0% 0%, rgba(250, 204, 21, 0.18), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(253, 224, 71, 0.14), transparent 55%),
                 var(--color-background);
             color: var(--color-text-main);
             line-height: 1.75;
@@ -64,7 +78,10 @@
 
         /* 심플한 포인트 컬러 텍스트 */
         .text-gradient {
-            color: var(--color-primary);
+            background: linear-gradient(120deg, #FDE047, #FACC15, #FDBA74);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         h2.section-title {
@@ -84,7 +101,7 @@
             width: 80px;
             height: 2px;
             border-radius: 999px;
-            background-color: var(--color-primary);
+            background: linear-gradient(90deg, #FACC15, #FDBA28);
         }
 
         /* 부제목 */
@@ -96,21 +113,20 @@
             margin-bottom: 0.75rem;
             line-height: 1.3;
             letter-spacing: -0.01em;
-            text-shadow: none;
         }
 
-        /* 2. Navigation - 화이트 상단바 */
+        /* 2. Navigation - Glassmorphism 스타일 */
         nav {
-            background-color: rgba(255, 255, 255, 0.94);
-            border-bottom: 1px solid #E5E7EB;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
         }
 
         nav:hover {
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-            border-color: rgba(226, 232, 240, 0.9);
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border-color: rgba(209, 213, 219, 0.9);
         }
 
         .nav-link {
@@ -120,7 +136,7 @@
             font-size: 0.78rem;
             text-transform: uppercase;
             color: #6B7280;
-            transition: color 0.18s ease, opacity 0.18s ease;
+            transition: color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
         }
 
         .nav-link::after {
@@ -130,7 +146,7 @@
             bottom: -0.3rem;
             width: 0;
             height: 2px;
-            background-color: var(--color-primary);
+            background: linear-gradient(90deg, #FACC15, #FDBA28);
             border-radius: 999px;
             transition: width .18s ease;
         }
@@ -142,6 +158,7 @@
         .nav-link:hover {
             color: #111827 !important;
             opacity: 1;
+            transform: translateY(-1px);
         }
 
         nav a.text-3xl {
@@ -174,58 +191,60 @@
             color: #6B7280 !important;
         }
 
-        /* 3. Hero Section - 심플 화이트 + 얇은 옐로우 포인트 */
+        /* 3. Hero Section - 화이트 + 옐로우 글로우 */
         .hero-section {
-            background-color: #FFFFFF;
+            background: radial-gradient(circle at top, #FFFBEB, #FFFFFF);
         }
 
         .hero-section p.text-yellow-500 {
             color: var(--color-primary) !important;
             border-radius: 999px;
             border: 1px solid #FDE68A;
-            padding: 0.3rem 1rem;
+            padding: 0.3rem 1.1rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background-color: #FFFBEB;
+            box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.18);
         }
 
         .hero-section .h-1.w-20 {
             height: 2px;
-            background-color: var(--color-primary);
+            background: linear-gradient(90deg, #FACC15, #FDBA28);
             border-radius: 999px;
         }
 
         .hero-section img[alt="Profile"] {
-            border-radius: 20px;
+            border-radius: 24px;
             border: 1px solid #E5E7EB;
             box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
             width: 19rem;
             height: auto;
             object-fit: contain;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
         }
 
         .hero-section .relative > .absolute {
-            background-color: #FEF9C3;
+            background: radial-gradient(circle, rgba(250, 204, 21, 0.55), transparent 60%);
             border-radius: 999px;
-            filter: blur(20px);
+            filter: blur(22px);
             opacity: 0.7;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .hero-section .relative:hover img[alt="Profile"] {
             transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 22px 55px rgba(15, 23, 42, 0.26);
+            box-shadow: 0 22px 55px rgba(15, 23, 42, 0.25);
             border-color: rgba(250, 204, 21, 0.7);
+            filter: saturate(1.05);
         }
 
         .hero-section .relative:hover > .absolute {
-            opacity: 0.9;
-            transform: scale(1.05);
+            opacity: 0.95;
+            transform: scale(1.06);
         }
 
-        /* Awards 카드들 (라이트 카드) */
+        /* Awards 카드들 (라이트 카드 + 살짝 떠오름) */
         .bg-[#F5F5F5] {
             background-color: #F5F5F5 !important;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
@@ -259,7 +278,6 @@
             background-color: #FFFBEB;
         }
 
-        /* Problem / Solution / Impact & Growth 포인트 처리 */
         .info-box h5 { 
             color: #111827; 
             font-weight: 700; 
@@ -319,7 +337,7 @@
             color: #D1D5DB;
         }
 
-        /* 6. Link Button - 심플 라운드 버튼 */
+        /* 6. Link Button - Pill 버튼 */
         .link-btn {
             display: flex; 
             align-items: center; 
@@ -351,7 +369,7 @@
         .link-btn:hover {
             transform: translateY(-2px);
             border-color: var(--color-primary);
-            background-color: #FFFBEB;
+            background: linear-gradient(90deg, #FFFBEB, #FEF9C3);
             box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
         }
 
@@ -371,7 +389,7 @@
 
         .skill-fill { 
             height: 100%; 
-            background-color: var(--color-primary); 
+            background: linear-gradient(90deg, #FACC15, #FDBA28); 
             border-radius: inherit; 
             width: 0; 
             transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -385,7 +403,7 @@
             transform: translateY(-3px);
         }
 
-        /* 8. 이미지 스타일 (전체적으로 더 크게) */
+        /* 8. 이미지 스타일 (전체적으로 통일) */
         .img-container { 
             margin: 1.2rem 0; 
             width: 100%; 
@@ -582,7 +600,7 @@
             transform: translateY(-2px);
         }
 
-        /* 12. Mobile */
+        /* 12. Responsiveness & UA 이미지 튀어나오는 문제 해결 */
         @media (max-width: 1024px) {
             .review-layout { 
                 grid-template-columns: 1fr; 
@@ -618,6 +636,18 @@
             }
             .project-subtitle {
                 font-size: 1.2rem;
+            }
+
+            /* 🔽 데이터 기반 UA 섹션 전용: 모바일에서 2열 → 1열 강제, 오버플로우 방지 */
+            #data_ua_anchor .img-row {
+                grid-template-columns: 1fr !important;
+                max-width: 100%;
+            }
+
+            #data_ua_anchor .img-row img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
             }
         }
     </style>
@@ -690,7 +720,7 @@
                         <div><span class="text-gray-500 block text-xs">2022.05</span><span class="text-white">숙명여대 아이디어 페스티벌</span></div>
                         <span class="text-yellow-500 font-bold">대상</span>
                     </div>
-                    <div class="bg-[#F5F5F5] p-4 rounded flex justify-between items-center">
+                    <div class="bg-[#F5F5F5] p-4 rounded flex justify_between items-center">
                         <div><span class="text-gray-500 block text-xs">2022.07</span><span class="text-gray-600">HS애드 YCC 공모전 광고 크리에이티브 부문</span></div>
                         <span class="text-gray-500 font-bold">동상</span>
                     </div>
@@ -985,11 +1015,11 @@
 
                     <div class="info-box mb-6">
                         <h5>Problem</h5>
-                        <p>브랜드 자체에서 제안한 영상의 컨셉이 '귀엽고 따뜻한' 무드였으며, 동물 캐릭터 등을 활용한 라이트한 숏폼 영상이었습니다. 하지만 최근 ai를 활용한 캐릭터 영상이 쏟아지고 있으며 ai에 대한 피로도가 조금씩 누적되고 있는 상황에서, 타깃층인 2-30대 여성에게 더욱 효과적으로 다가갈 방법이 필요했습니다.</p>
+                        <p>브랜드 자체에서 제안한 영상의 컨셉이 '귀엽고 따뜻한' 무드였으며, 동물 캐릭터 등을 활용한 라이트한 숏폼 영상이었습니다. 하지만 최근 ai를 활용한 캐릭터 영상이 쏟아지고 있으며 ai에 대한 피로도가 조금씩 누적되고 있는 상황에서, 타깃층인 2-30대 여성에게 더욱 효과적으로 다가갈 방법이 필요했습니다。</p>
                     </div>
                     <div class="info-box mb-6">
                         <h5>Solution</h5>
-                        <p>타깃인 2-30대 여성이 자연스럽게 공감할 수 있는 실사 동물 다큐의 형식을 차용해, AI 특유의 이질감을 최소화하고 귀엽고 편안한 숏폼을 기획했습니다. 실사 기반의 리얼리티와 AI가 구현할 수 있는 독창적 동작 사이의 경계를 정교하게 조율해 콘텐츠를 제작했으며, 이를 통해 AI만이 할 수 있는 것과 그렇지 못한 지점을 정확하게 파악하고 활용하는 역량을 갖추게 되었습니다.</p>
+                        <p>타깃인 2-30대 여성이 자연스럽게 공감할 수 있는 실사 동물 다큐의 형식을 차용해, AI 특유의 이질감을 최소화하고 귀엽고 편안한 숏폼을 기획했습니다. 실사 기반의 리얼리티와 AI가 구현할 수 있는 독창적 동작 사이의 경계를 정교하게 조율해 콘텐츠를 제작했으며, 이를 통해 AI만이 할 수 있는 것과 그렇지 못한 지점을 정확하게 파악하고 활용하는 역량을 갖추게 되었습니다。</p>
                     </div>
                     <a href="https://www.youtube.com/watch?v=ZrpyisT9WhQ" target="_blank" class="link-btn">
                         <span><i class="fab fa-youtube text-red-500 text-xl mr-3"></i> AI 숏폼 광고 영상 보기 (YouTube)</span>
@@ -1054,7 +1084,7 @@
     </footer>
 
     <script>
-        // Progress Bar Animation (Fixed with null check)
+        // Progress Bar Animation
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const item = entry.target; 
@@ -1084,7 +1114,6 @@
                 }
             });
         });
-
     </script>
 </body>
 </html>
