@@ -3,626 +3,1088 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>김산하 (SANHA KIM) 포트폴리오 - Yellow Beige Theme</title>
+    <title>김산하 (SANHA KIM) 포트폴리오 - Neo Trendy</title>
+
+    <!-- Tailwind & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 🔗 SNS / 메신저 썸네일용 Open Graph (이미지 URL은 나중에 직접 채우기) -->
+    <meta property="og:title" content="김산하 (SANHA KIM) 포트폴리오">
+    <meta property="og:description" content="콘텐츠 기획 · 영상/숏폼 제작 · 데이터 기반 UA 포트폴리오">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="김산하 (SANHA KIM) 포트폴리오">
+    <meta name="twitter:description" content="콘텐츠 기획 · 영상/숏폼 제작 · 데이터 기반 UA 포트폴리오">
+    <meta name="twitter:image" content="">
+
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        
+
         :root {
-            --color-primary: #D9A066;   
-            --color-secondary: #EBC96F; 
-            --color-background: #F8F5EE;
-            --color-surface: #FFFDF8;   
-            --color-text-dark: #3E332B; 
-            --color-text-mid: #7A6F66;  
-            --color-bar-bg: #EAE5D9;    
+            --color-bg: #050816;
+            --color-bg-soft: rgba(15, 23, 42, 0.7);
+            --color-card: rgba(15, 23, 42, 0.82);
+            --color-border-soft: rgba(148, 163, 184, 0.4);
+            --color-accent: #7C3AED;       /* 보라 */
+            --color-accent-soft: #4F46E5;  /* 인디고 */
+            --color-accent-neon: #22D3EE;  /* 시안 포인트 */
+            --color-text-main: #F9FAFB;
+            --color-text-sub: #9CA3AF;
+            --color-pill-bg: rgba(15,23,42,0.9);
+            --radius-card: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            font-family: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--color-background);
-            color: var(--color-text-dark);
-            line-height: 1.6;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.32), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.32), transparent 55%),
+                radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.18), transparent 55%),
+                #020617;
+            color: var(--color-text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4, h5 {
-            font-family: 'Pretendard', sans-serif;
-            color: var(--color-text-dark);
-            font-weight: 700;
+            color: var(--color-text-main);
+            letter-spacing: -0.02em;
         }
+
+        p, li, span {
+            color: var(--color-text-sub);
+        }
+
+        .container-width {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* 기존 tailwind yellow/white 컬러를 새로운 톤으로 덮어쓰기 */
+        .text-white {
+            color: var(--color-text-main) !important;
+        }
+        .text-gray-300 {
+            color: #CBD5F5 !important;
+        }
+        .text-gray-400 {
+            color: #9CA3AF !important;
+        }
+        .text-gray-500 {
+            color: #6B7280 !important;
+        }
+        .text-gray-600 {
+            color: #6B7280 !important;
+        }
+        .text-yellow-500,
+        .text-yellow-600 {
+            color: var(--color-accent-neon) !important;
+        }
+        .border-yellow-600 {
+            border-color: var(--color-accent) !important;
+        }
+
+        /* 네온 로고 / 타이틀 그라데이션 */
+        .logo-gradient {
+            background: linear-gradient(120deg, #A855F7, #6366F1, #22D3EE);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient {
+            background: linear-gradient(120deg, #A855F7, #F97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
         h2.section-title {
             position: relative;
             display: inline-block;
-            font-size: 2.25rem;
-            padding-bottom: 0.5rem;
-        }
-        h2.section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40%;
-            height: 4px;
-            background-color: var(--color-secondary);
-            border-radius: 2px;
-        }
-
-        .hero-section {
-            background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
-            min-height: 100vh;
-        }
-        .project-section {
-            scroll-margin-top: 100px;
-        }
-        .skill-card {
-            background-color: var(--color-surface);
-            border: 1px solid #EDE9E0;
-            transition: all 0.3s ease;
-        }
-        .skill-card:hover {
-            box-shadow: 0 10px 20px rgba(217, 160, 102, 0.15);
-            border-color: var(--color-primary);
-            transform: translateY(-4px);
-        }
-        .icon-box {
-            color: var(--color-primary);
-            background-color: #FEF7E6;
-        }
-        .highlight-text {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-        /* Info Box 스타일 */
-        .info-box {
-            background-color: var(--color-surface);
-            border-left: 4px solid var(--color-secondary);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            border: 1px solid #EDE9E0;
-            border-left-width: 4px; 
+            font-size: 2.2rem;
+            padding-bottom: 0.8rem;
             margin-bottom: 1rem;
         }
-        .info-box-header {
-            color: var(--color-primary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        .info-box-content {
-            font-size: 0.95rem;
-            color: var(--color-text-mid);
-            white-space: pre-line; 
-        }
 
-        /* Video Containers */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            background: #000;
-        }
-        /* Shorts용 세로형 비디오 컨테이너 */
-        .video-container-short {
-            position: relative;
-            width: 100%;
-            max-width: 400px; /* 너무 커지지 않도록 제한 */
-            aspect-ratio: 9 / 16;
-            margin: 0 auto; /* 중앙 정렬 */
-            border-radius: 0.5rem;
-            overflow: hidden;
-            background: #000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .video-container iframe, .video-container-short iframe {
+        h2.section-title::after {
+            content: "";
             position: absolute;
-            top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .progress-bar {
-            background-color: var(--color-primary);
-            height: 100%;
-            border-radius: 9999px;
-            width: 0;
-            transition: width 1.5s ease-in-out;
+            bottom: 0;
+            width: 90px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-neon));
+            box-shadow: 0 0 18px rgba(34, 211, 238, 0.7);
         }
 
-        /* 이미지 컨테이너 스타일 (부제목 아래 배치용) */
-        .visual-container {
-            margin-top: 1.5rem;
-            margin-bottom: 2rem;
-            width: 100%;
-            display: flex;
-            justify-content: center;
+        /* NAV - 상단 글라스바 */
+        nav {
+            background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(15,23,42,0.88));
+            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
-        .visual-container img {
-            max-height: 500px;
-            object-fit: contain;
+
+        nav:hover {
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+            border-color: rgba(129, 140, 248, 0.7);
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 0.1rem;
+            letter-spacing: 0.18em;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            color: #9CA3AF;
+            transition: color 0.18s ease, opacity 0.18s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.28rem;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #A855F7, #22D3EE);
+            border-radius: 999px;
+            transition: width 0.18s ease;
+        }
+
+        .nav-link:hover::after {
             width: 100%;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link:hover {
+            color: #E5E7EB !important;
+            opacity: 1;
+        }
+
+        nav a.text-3xl {
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        nav a.text-3xl:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        /* HERO SECTION - 좌우 반전 + 네온 아우라 */
+        .hero-section {
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.4), transparent 55%);
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1.1rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(15,23,42,0.75));
+            border: 1px solid rgba(148, 163, 248, 0.7);
+            box-shadow: 0 0 22px rgba(59, 130, 246, 0.6);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #E5E7EB;
+        }
+
+        .hero-section .divider-line {
+            height: 2px;
+            width: 64px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #22D3EE, #A855F7);
+            box-shadow: 0 0 18px rgba(34, 211, 238, 0.7);
+        }
+
+        .hero-profile-wrapper {
+            position: relative;
+            padding: 0.4rem;
+            border-radius: 999px;
+            background: radial-gradient(circle at 20% 0%, rgba(34, 211, 238, 0.4), transparent 55%),
+                        radial-gradient(circle at 80% 100%, rgba(168, 85, 247, 0.6), transparent 55%);
+        }
+
+        .hero-glow {
+            position: absolute;
+            inset: 12%;
+            border-radius: inherit;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent 65%);
+            filter: blur(22px);
+            opacity: 0.65;
+            z-index: 0;
+        }
+
+        .hero-section img[alt="Profile"] {
+            position: relative;
+            z-index: 1;
+            border-radius: 24px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            box-shadow: 0 24px 50px rgba(15, 23, 42, 0.95);
+            width: 19rem;
+            height: auto;
+            object-fit: contain;
+            filter: saturate(1.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+            background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(15,23,42,0.98));
+        }
+
+        .hero-profile-wrapper:hover img[alt="Profile"] {
+            transform: translateY(-4px) translateX(2px);
+            box-shadow: 0 30px 70px rgba(15, 23, 42, 1);
+            border-color: rgba(96, 165, 250, 0.9);
+            filter: saturate(1.1);
+        }
+
+        /* 카드 & 인포 박스 공통 글라스 스타일 */
+        .card {
+            background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            box-shadow: 0 22px 60px rgba(15,23,42,0.9);
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+            border-left: 3px solid var(--color-accent);
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            padding: 1.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box h5 {
+            color: #E5E7EB;
+            font-weight: 700;
+            margin-bottom: 0.9rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.28rem 0.95rem;
+            border-radius: 999px;
+            background: radial-gradient(circle at 0 0, rgba(34,211,238,0.4), rgba(15,23,42,0.9));
+            border: 1px solid rgba(96,165,250,0.7);
+        }
+
+        .info-box h5::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #22D3EE, #A855F7);
+            box-shadow: 0 0 10px rgba(34,211,238,0.85);
+        }
+
+        .info-box p {
+            font-size: 0.97rem;
+            color: var(--color-text-sub);
+            white-space: pre-line;
+        }
+
+        /* 프로젝트 카드 */
+        #ip_contents,
+        #marketing_strategy_anchor,
+        #video_shortform_anchor,
+        #data_ua_anchor {
+            background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(15,23,42,0.9));
+            border-radius: 22px;
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            box-shadow: 0 24px 70px rgba(15,23,42,0.95);
+        }
+
+        #ip_contents > .flex span,
+        #marketing_strategy_anchor > .flex span,
+        #video_shortform_anchor > .flex span,
+        #data_ua_anchor > .flex span {
+            color: rgba(148, 163, 184, 0.85);
+        }
+
+        /* Awards 카드 - 어두운 배경에 맞는 글라스 */
+        .award-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.15rem;
+            border-radius: 14px;
+            background: radial-gradient(circle at top left, rgba(55,65,81,0.7), rgba(15,23,42,0.95));
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            box-shadow: 0 18px 50px rgba(15,23,42,0.95);
+        }
+
+        .award-card span.text-year {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: #9CA3AF;
+        }
+
+        .award-card span.title {
+            color: #E5E7EB;
+        }
+
+        .award-card span.badge {
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            background: radial-gradient(circle at 0 0, rgba(34,211,238,0.32), rgba(15,23,42,0.95));
+            border: 1px solid rgba(56, 189, 248, 0.9);
+            color: #E5E7EB;
+        }
+
+        .award-card span.badge.gray {
+            background: radial-gradient(circle at 0 0, rgba(148,163,184,0.18), rgba(15,23,42,0.95));
+            border-color: rgba(148, 163, 184, 0.9);
+        }
+
+        /* 링크 버튼 - 네온 pill */
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1.4rem;
+            border-radius: 999px;
+            background: radial-gradient(circle at 0 0, rgba(34,211,238,0.35), rgba(15,23,42,1));
+            border: 1px solid rgba(59,130,246,0.9);
+            color: #E5E7EB;
+            text-decoration: none;
+            font-size: 0.95rem;
+            box-shadow: 0 18px 45px rgba(15,23,42,0.95);
+        }
+
+        .link-btn span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .link-btn i.link-arrow {
+            transition: transform 0.16s ease;
+        }
+
+        .link-btn:hover i.link-arrow {
+            transform: translateX(4px);
+        }
+
+        /* 스킬 바 */
+        .skill-track {
+            background: rgba(31,41,55,1);
+            height: 8px;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: inherit;
+            width: 0;
+            background: linear-gradient(90deg, #22D3EE, #6366F1, #A855F7);
+            box-shadow: 0 0 18px rgba(56,189,248,0.8);
+            transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 이미지 공통 */
+        .img-constrained,
+        .img-constrained-full {
+            max-width: 620px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 18px 50px rgba(15,23,42,0.95);
+        }
+
+        .img-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin: 1.8rem auto;
+            max-width: 980px;
+        }
+
+        .img-row img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 18px 50px rgba(15,23,42,0.95);
+        }
+
+        .img-container {
+            margin: 1.2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .img-container img {
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 18px 50px rgba(15,23,42,0.95);
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .review-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .review-layout .side-imgs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .review-layout .side-imgs img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 18px 50px rgba(15,23,42,0.95);
+        }
+
+        /* 핵심 역량 네비게이션 - 완전 다른 느낌 */
+        .core-nav {
+            background: radial-gradient(circle at 0 0, rgba(56,189,248,0.18), transparent 55%),
+                        radial-gradient(circle at 100% 100%, rgba(168,85,247,0.24), transparent 55%),
+                        rgba(15,23,42,1);
+            border-block: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .core-nav .container-width {
+            max-width: 1024px;
+        }
+
+        .core-nav-inner {
+            border-radius: 22px;
+            padding: 2rem 1.7rem;
+            background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            box-shadow: 0 22px 60px rgba(15,23,42,0.95);
+        }
+
+        .core-nav h3 {
+            font-size: 0.9rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            text-align: center;
+            color: #CBD5F5 !important;
+        }
+
+        .core-nav .grid a {
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: radial-gradient(circle at 0 0, rgba(31,41,55,0.9), rgba(15,23,42,1));
+            box-shadow: 0 16px 45px rgba(15,23,42,1);
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #E5E7EB;
+            padding: 0.9rem 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .core-nav .grid a span.emoji {
+            font-size: 1.15rem;
+        }
+
+        /* Projects 제목 */
+        #projects {
+            background: transparent;
+        }
+
+        /* Footer */
+        footer {
+            background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.28), transparent 60%),
+                        #020617;
+            border-top: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        footer p {
+            color: #9CA3AF !important;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .review-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 4rem;
+            }
+
+            .container-width {
+                padding-inline: 1.25rem;
+            }
+
+            .img-row {
+                grid-template-columns: 1fr;
+            }
+
+            .review-layout .side-imgs img {
+                max-width: 100%;
+            }
+
+            #data_ua_anchor .img-row {
+                grid-template-columns: 1fr !important;
+                max-width: 100%;
+            }
+
+            #data_ua_anchor .img-row img {
+                width: 100%;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
+    <nav class="sticky top-0 z-50 shadow-lg border-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#home" class="text-2xl font-bold" style="color: var(--color-primary);">SANHA KIM</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-red-600 transition duration-300">Home</a>
-                    <a href="#skills" class="text-gray-700 hover:text-red-600 transition duration-300">핵심 역량</a>
-                    <a href="#projects" class="text-gray-700 hover:text-red-600 transition duration-300">주요 프로젝트</a>
-                    <a href="#contact" class="text-gray-700 hover:text-red-600 transition duration-300">Contact</a>
+            <div class="flex justify-between items-center h-20">
+                <a href="#home" class="text-3xl font-bold tracking-wider logo-gradient">SANHA KIM</a>
+                <div class="hidden md:flex space-x-10 text-base font-medium tracking-wide">
+                    <a href="#about" class="nav-link">ABOUT</a>
+                    <a href="#projects" class="nav-link">PROJECTS</a>
+                    <a href="#contact" class="nav-link">CONTACT</a>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden text-gray-500 hover:text-red-600 focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
-            <a href="#skills" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">핵심 역량</a>
-            <a href="#projects" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">주요 프로젝트</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center p-4 sm:p-8">
-        <div class="max-w-7xl mx-auto w-full py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between">
-            <div class="lg:w-1/3 w-2/3 max-w-sm mb-10 lg:mb-0 lg:order-2">
-                <img src="https://placehold.co/400x400/F2EFE7/4A403A?text=SANHA+KIM+Profile" 
-                     alt="김산하 프로필 사진" 
-                     class="rounded-xl shadow-xl ring-4" 
-                     style="border-color: var(--color-primary); object-fit: cover; width: 100%; height: auto; aspect-ratio: 1/1;">
-            </div>
-            <div class="lg:w-1/2 lg:pr-16 text-center lg:text-left lg:order-1">
-                <p class="text-lg mb-2" style="color: var(--color-primary);">KIM SANHA PORTFOLIO</p>
-                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight tracking-tight">
-                    김산하 (SANHA KIM)
+    <section id="home" class="hero-section flex items-center justify-center p-4 sm:p-8 min-h-[85vh]">
+        <div class="container-width grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <!-- Profile 오른쪽으로 배치 -->
+            <div class="order-2 md:order-1 text-center md:text-left">
+                <div class="hero-pill mb-4">
+                    <span>PORTFOLIO</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight">
+                    김산하<br>
+                    <span class="text-gradient">SANHA KIM</span>
                 </h1>
-                <p class="text-xl md:text-2xl font-light mb-6" style="color: var(--color-text-mid);">
-                    새로운 방식으로 질문하고, 다양한 경험에서 인사이트를 발견하며, 결과로 말하는 사람
-                </p>
-                <div class="text-base space-y-2" style="color: var(--color-text-mid);">
-                    <p><strong>생년월일:</strong> 2001.08.09 (만 24세)</p>
-                    <p><strong>Education:</strong> 2021~ 2025 숙명여자대학교 홍보광고학과 (영상 예술경영 복수전공)</p>
-                    <p><strong>Contact:</strong> twinab0809@naver.com / 010-3371-2981</p>
+                <div class="divider-line mb-8 mx-auto md:mx-0"></div>
+                <div class="space-y-2 text-lg">
+                    <p>2001.08.09 (만 24세)</p>
+                    <p>숙명여자대학교 홍보광고학과 | 영상 예술경영 복수전공</p>
+                    <p class="mt-4"><i class="fas fa-envelope mr-2 text-yellow-500"></i> twinab0809@naver.com</p>
+                    <p><i class="fas fa-phone mr-2 text-yellow-500"></i> 010-3371-2981</p>
                 </div>
-                <a href="#skills" class="mt-8 inline-block font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg" 
-                   style="background-color: var(--color-primary); color: white;">
-                    핵심 역량 및 프로젝트 보기 <i class="fas fa-arrow-down ml-2"></i>
-                </a>
+            </div>
+            <div class="flex justify-center order-1 md:order-2">
+                <div class="hero-profile-wrapper">
+                    <div class="hero-glow"></div>
+                    <img src="portfolioImg/profile.png" alt="Profile" class="relative max-w-xs h-auto object-contain">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Me / Skills / Awards / Activities -->
-    <section class="max-w-7xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
-            <!-- Left Column: About & Skills -->
+    <!-- About & Skills -->
+    <section id="about">
+        <div class="container-width grid lg:grid-cols-2 gap-14">
+            <!-- Left: About + Awards -->
             <div>
-                <h2 class="section-title text-4xl mb-8">About Me</h2>
-                <div class="space-y-4 mb-12 text-lg" style="color: var(--color-text-mid);">
-                    <p class="font-semibold" style="color: var(--color-text-dark);">
-                        새로운 방식으로 질문하고, 다양한 경험에서 인사이트를 발견하며, 결과로 말하는 사람
-                    </p>
-                    <p>
-                        콘텐츠라는 세계는 늘 제게 도전이었습니다. 기자단 활동에서는 정보의 본질을 파고들었고, 각종 공모전에서는 소비자의 행동을 읽는 법을 배웠습니다. 익숙함을 깨는 시도 속에서 AI 콘텐츠의 의미 있는 성과를 만들어 왔으며, 그 과정에서 '도전은 나를 성장시킨다'는 확신을 갖게 되었습니다.
-                    </p>
-                    <p>
-                        몰입하는 제 성향은 언제나 다음 성장을 향합니다. <span class="highlight-text">네이버 메인 랭킹 1위 달성</span>, <span class="highlight-text">수백만 PV 유입</span>, <span class="highlight-text">웹소설 출간 경험</span>으로 증명해 왔습니다. 하지만 저를 가장 움직이는 진짜 에너지는 성과 그 자체보다, 콘텐츠가 사람에게 선한 영향을 줄 수 있다는 믿음입니다.
-                    </p>
+                <h2 class="section-title">About Me</h2>
+                <div class="card p-7 mb-10">
+                    <p class="font-bold text-xl mb-5">"새로운 방식으로 질문하고, 다양한 경험에서 인사이트를 발견하며, 결과로 말하는 사람"</p>
+                    <p class="mb-4">콘텐츠라는 세계는 늘 제게 도전이었습니다. 기자 활동 때에는 정보 속 후킹 요소를 파고들었고, 각종 공모전에서는 트렌드를 읽는 법을 배웠습니다. 익숙함을 깨는 시도 속에서 AI 콘텐츠의 의미 있는 성과를 만들어 왔으며, 그 과정에서 '도전은 나를 성장시킨다'는 확신을 갖게 되었습니다.</p>
+                    <p>몰입하는 제 성향은 언제나 다음 성장을 향합니다. <span class="text-yellow-500 font-bold">네이버 메인 랭킹 1위 달성, PV 2,572,876 유입, 웹소설 출간 경험</span>으로 증명해 왔습니다. 저를 움직이는 에너지는 콘텐츠가 사람에게 선한 영향을 줄 수 있다는 믿음입니다.</p>
                 </div>
 
-                <h3 class="text-2xl font-semibold mb-6" style="color: var(--color-primary);">Skills</h3>
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Premier Pro</span>
-                            <span class="font-semibold text-gray-500">90</span>
+                <div class="mb-7 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold tracking-[0.18em] uppercase text-gray-300">Awards</h3>
+                </div>
+                <div class="space-y-3 text-sm md:text-base">
+                    <div class="award-card">
+                        <div>
+                            <span class="text-year block">2025.11</span>
+                            <span class="title">대한민국 대학생 디지털 광고제 KUDAF</span>
                         </div>
-                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">
-                            <div class="progress-bar" style="width: 90%;"></div>
-                        </div>
+                        <span class="badge">대상</span>
                     </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Photoshop</span>
-                            <span class="font-semibold text-gray-500">80</span>
+                    <div class="award-card">
+                        <div>
+                            <span class="text-year block">2025.02</span>
+                            <span class="title">CJ프레시웨이 마케팅 챌린지</span>
                         </div>
-                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">
-                            <div class="progress-bar" style="width: 80%;"></div>
-                        </div>
+                        <span class="badge">대상</span>
                     </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">Figma</span>
-                            <span class="font-semibold text-gray-500">70</span>
+                    <div class="award-card">
+                        <div>
+                            <span class="text-year block">2022.05</span>
+                            <span class="title">숙명여대 아이디어 페스티벌</span>
                         </div>
-                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">
-                            <div class="progress-bar" style="width: 70%;"></div>
-                        </div>
+                        <span class="badge">대상</span>
                     </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-medium">AI Tools (Midjourny, Kling Ai, Gemini, Whisk)</span>
-                            <span class="font-semibold text-gray-500">70</span>
+                    <div class="award-card">
+                        <div>
+                            <span class="text-year block">2022.07</span>
+                            <span class="title">HS애드 YCC 공모전 광고 크리에이티브 부문</span>
                         </div>
-                        <div class="w-full h-3 rounded-full" style="background-color: var(--color-bar-bg);">
-                            <div class="progress-bar" style="width: 70%;"></div>
-                        </div>
+                        <span class="badge gray">동상</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Awards & Activities -->
+            <!-- Right: Skills & Activities -->
             <div>
-                <h2 class="section-title text-4xl mb-8">Awards</h2>
-                <div class="space-y-4 mb-12">
-                    <div class="border-b pb-4 border-gray-200">
-                        <p class="text-lg font-semibold" style="color: var(--color-primary);">대한민국 대학생 디지털 광고제 KUDAF | 대상</p>
-                        <p class="text-sm text-gray-500">2025.11</p>
+                <h2 class="section-title">Skills</h2>
+                <div class="card p-7 mb-10 space-y-6">
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm font-semibold mb-1">
+                            <span>Premier Pro</span><span>90%</span>
+                        </div>
+                        <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
                     </div>
-                    <div class="border-b pb-4 border-gray-200">
-                        <p class="text-lg font-semibold" style="color: var(--color-primary);">CJ프레시웨이 대학생 외식 마케팅 아이디어 챌린지 | 대상</p>
-                        <p class="text-sm text-gray-500">2025.02</p>
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm font-semibold mb-1">
+                            <span>Photoshop</span><span>80%</span>
+                        </div>
+                        <div class="skill-track"><div class="skill-fill" data-width="80%"></div></div>
                     </div>
-                    <div class="border-b pb-4 border-gray-200">
-                        <p class="text-lg font-semibold" style="color: var(--color-primary);">숙명여대 '숙광숙만' 아이디어 페스티벌 프로모션 부문 | 대상</p>
-                        <p class="text-sm text-gray-500">2022.05</p>
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm font-semibold mb-1">
+                            <span>Figma</span><span>70%</span>
+                        </div>
+                        <div class="skill-track"><div class="skill-fill" data-width="70%"></div></div>
                     </div>
-                    <div>
-                        <p class="text-lg font-semibold" style="color: var(--color-text-dark);">HS애드 YCC 공모전 광고 크리에이티브 부문 | 동상</p>
-                        <p class="text-sm text-gray-500">2022.07</p>
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm font-semibold mb-1">
+                            <span>Gen AI Tools (Midjourney, Kling, etc)</span><span>70%</span>
+                        </div>
+                        <div class="skill-track"><div class="skill-fill" data-width="70%"></div></div>
                     </div>
                 </div>
 
-                <h3 class="text-2xl font-semibold mb-6" style="color: var(--color-primary);">Activities</h3>
-                <ul class="space-y-4 text-base" style="color: var(--color-text-mid);">
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2021.10~2022.02</span>
-                        뮤직비디오 제작 동아리 '크리어스'
-                    </li>
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2022.09~2022.12</span>
-                        서울시 전통시장 서포터즈
-                    </li>
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2023.04~2024.01</span>
-                        웹소설 작가/프리랜서
-                    </li>
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2023.09~2024.01</span>
-                        중국어권 국가 어학연수
-                    </li>
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2024.06~2024.08</span>
-                        패스트뷰 제작사업본부 엔터팀 인턴
-                    </li>
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2025.08~2025.11</span>
-                        교내 자기주도설계프로젝트 (SNS계정 운영)
-                    </li>
-                    <li class="pl-4 border-l-2" style="border-color: var(--color-secondary);">
-                        <span class="font-semibold block" style="color: var(--color-text-dark);">2025.09~2025.12</span>
-                        숙명여자대학교 스노우샵 행정인턴 (홍보/이벤트 포스터 제작 및 프로모션)
-                    </li>
-                </ul>
+                <h3 class="text-lg font-semibold tracking-[0.18em] uppercase text-gray-300 mb-5">Activities</h3>
+                <div class="card p-6">
+                    <ul class="space-y-3">
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2021.10~2022.02</span>
+                            <span>뮤직비디오 제작 동아리 '크리어스'</span>
+                        </li>
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2022.09~2022.12</span>
+                            <span>서울시 전통시장 서포터즈</span>
+                        </li>
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2023.04~2024.01</span>
+                            <span>웹소설 작가/프리랜서</span>
+                        </li>
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2023.09~2024.01</span>
+                            <span>중국어권 국가 어학연수</span>
+                        </li>
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2024.06~2024.08</span>
+                            <span>패스트뷰 제작사업본부 엔터팀 인턴</span>
+                        </li>
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2025.08~2025.11</span>
+                            <span>교내 자기주도설계프로젝트 (SNS계정 운영)</span>
+                        </li>
+                        <li class="flex gap-4 text-sm md:text-base">
+                            <span class="text-yellow-500 font-semibold min-w-[140px]">2025.09~2025.12</span>
+                            <span>숙명여대 스노우샵 행정인턴</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Navigation Cards -->
-    <section id="skills" class="max-w-7xl mx-auto px-6 py-20 bg-white rounded-xl shadow-sm border border-[#EDE9E0]">
-        <h2 class="section-title text-4xl mb-12 text-center mx-auto block">핵심 역량 및 스킬</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <a href="#ip_contents" class="skill-card p-6 rounded-xl shadow-md group">
-                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">
-                    <i class="fas fa-book-open text-xl"></i>
+    
+    <!-- Core Competencies Navigation -->
+    <section class="core-nav py-12">
+        <div class="container-width">
+            <div class="core-nav-inner">
+                <h3>핵심 역량 및 스킬</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+                    <a href="#ip_contents">
+                        <span class="emoji">📚</span>
+                        <span>IP/콘텐츠 이해</span>
+                    </a>
+                    <a href="#marketing_strategy_anchor">
+                        <span class="emoji">🧠</span>
+                        <span>마케팅 전략 기획</span>
+                    </a>
+                    <a href="#video_shortform_anchor">
+                        <span class="emoji">🎬</span>
+                        <span>영상/숏폼 제작</span>
+                    </a>
+                    <a href="#data_ua_anchor">
+                        <span class="emoji">📈</span>
+                        <span>데이터 기반 UA</span>
+                    </a>
                 </div>
-                <h3 class="text-xl font-bold mb-2 group-hover:underline">1. IP/콘텐츠 이해</h3>
-                <p class="text-sm text-gray-600">웹소설 작가 경험, 독자 후킹 포인트 분석</p>
-            </a>
-            <a href="#marketing_strategy_anchor" class="skill-card p-6 rounded-xl shadow-md group">
-                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">
-                    <i class="fas fa-bullhorn text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2 group-hover:underline">2. 마케팅 전략 기획</h3>
-                <p class="text-sm text-gray-600">브랜드 약점 서사 기획, 생성형 AI 활용</p>
-            </a>
-            <a href="#video_shortform_anchor" class="skill-card p-6 rounded-xl shadow-md group">
-                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">
-                    <i class="fas fa-film text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2 group-hover:underline">3. 영상/숏폼 제작</h3>
-                <p class="text-sm text-gray-600">유튜브 채널 운영, AI 숏폼 광고</p>
-            </a>
-            <a href="#data_ua_anchor" class="skill-card p-6 rounded-xl shadow-md group">
-                <div class="icon-box w-12 h-12 rounded-full flex items-center justify-center mb-4 transition duration-300">
-                    <i class="fas fa-database text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2 group-hover:underline">4. 데이터 기반 UA</h3>
-                <p class="text-sm text-gray-600">네이버 랭킹 1위 달성, 누적 250만+ PV</p>
-            </a>
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="section-title text-4xl mb-16 text-center mx-auto block">주요 프로젝트 상세</h2>
+    <section id="projects">
+        <div class="container-width">
+            <h2 class="section-title mb-16">주요 프로젝트 상세</h2>
 
-        <!-- 1. IP/콘텐츠 이해 -->
-        <div id="ip_contents" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">
-            <h3 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">1. IP/콘텐츠 이해: 웹소설 작가 경험</h3>
-            
-            <!-- Image Section (Below Title) -->
-            <div class="visual-container">
-                <img src="https://placehold.co/600x300/F2EFE7/4A403A?text=Web+Novel+Writing" alt="웹소설 집필 이미지">
-            </div>
-
-            <div class="space-y-4" style="color: var(--color-text-mid);">
-                <ul class="list-disc list-outside ml-5 space-y-2 text-lg">
-                    <li>출판사와 계약 후 소설 집필</li>
-                    <li>네이버 시리즈 타임딜 프로모션 받아 작품 출간</li>
-                    <li>각종 웹 콘텐츠 플랫폼들 경험</li>
-                    <li>독자 유입 분석 및 플랫폼 성향 주력 장르 분석</li>
-                    <li>독자 후킹 포인트 분석</li>
-                    <li><span class="highlight-text">65만 조회수</span> 상업 콘텐츠 구상과 집필</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- 2. 마케팅 전략 기획 -->
-        <div id="marketing_strategy_anchor" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">
-            <h3 class="text-3xl font-bold mb-8" style="color: var(--color-primary);">2. 마케팅 전략 기획 (대상 2회)</h3>
-            
-            <!-- CJ 프레시웨이 -->
-            <div class="mb-12 pb-12 border-b border-gray-200">
-                <h4 class="text-2xl font-bold mb-2">CJ 프레시웨이 대학생 외식 마케팅 아이디어 챌린지 | 대상</h4>
-                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">브랜드의 약점을 스토리로 설계하다</p>
+            <!-- 1. IP/Contents -->
+            <div id="ip_contents" class="mb-24 p-8 border-l-4 border-yellow-600">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-5xl md:text-6xl font-bold text-gray-500">01</span>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">IP/콘텐츠 이해</h3>
+                        <p class="project-subtitle">웹소설 작가 경험</p>
+                    </div>
+                </div>
                 
-                <!-- Video Embed (Below Subtitle) -->
-                <div class="visual-container">
-                    <div class="video-container-short">
-                        <!-- CJ Freshway Video ID: tCbv9pAHAvQ -->
-                        <iframe src="https://www.youtube.com/embed/tCbv9pAHAvQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                <div class="mb-8">
+                    <img src="portfolioImg/webnovel.png" alt="웹소설 섬네일" class="img-constrained">
                 </div>
 
-                <div class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-6">
                     <div class="info-box">
-                        <p class="info-box-header">Problem</p>
-                        <p class="info-box-content">호떡과 맥주를 페어링한 브랜드 '호맥'은 신선한 콘셉트를 가졌지만, 낮은 인지도와 조합의 생소함으로 인해 소비자의 진입 장벽이 존재했습니다. 특히 '치맥'이라는 강력한 경쟁 상대를 넘기 위해선, 처음 접하는 조합에 대한 어색함을 해소할 전혀 새로운 접근 방식이 필요했습니다.</p>
+                        <h5>Problem</h5>
+                        <p>웹소설 무료 연재를 시작했지만, 독자 유입과 조회수가 극히 낮아 작품의 사업성에 의문이 생겼고, 연재 지속 여부를 고민해야 하는 상황에 놓였습니다.</p>
                     </div>
                     <div class="info-box">
-                        <p class="info-box-header">Solution</p>
-                        <p class="info-box-content">호맥의 조합이 '원래부터 존재했던 전통처럼' 보이게 하는 서사를 기획해 역사 콘텐츠 '호맥정음'을 제작했습니다. '바이킹의 난파로 동양의 호떡과 서양의 맥주가 만났다'는 스토리를 만들고 ImageFX, Runway. Kling 등 생성형 AI 툴을 활용해 실재감 있는 폼 콘텐츠로 구현했습니다. 유머와 페이크 다큐 형식을 결합해, 낯선 조합을 익숙하게 받아들이도록 유도했습니다.</p>
-                    </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Impact & Growth</p>
-                        <p class="info-box-content">생소했던 생성형 AI 툴을 끊임없는 탐구를 통해 학습하며, 첫 시도임에도 불구하고 높은 퀄리티의 결과물로 1위를 달성했습니다. 콘텐츠의 전략적 기획과 신선함, 브랜드의 약점을 서사로 풀어낸 시도에서 높은 평가를 받았습니다. 이 경험을 통해 저는 브랜드 마케팅이 단순히 '알리는 것'을 넘어, 사람들이 '이야기하게 만드는 것'이라는 확신을 갖게 되었습니다. 브랜드의 약점을 통찰로 전환하고, 콘텐츠로 풀어 내는 전략은, 저만의 기획 역량이 되었습니다.</p>
+                        <h5>Solution</h5>
+                        <p>독자 유입 시간대, 경쟁 작품의 업로드 패턴, 장르별 선호도, 표지/소개글/제목의 후킹 요소 등을 직접 분석해 문제를 진단하고, 플랫폼 선정, 카피와 표지 리뉴얼, 업로드 시간 재조정 등 타깃 맞춤 전략으로 개선했습니다.</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- KUDAF -->
-            <div>
-                <h4 class="text-2xl font-bold mb-2">대한민국 대학생 디지털 광고제 KUDAF | 대상</h4>
-                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">숏폼을 통해 현실에서 검증받는 콘텐츠를 만들다</p>
-                
-                <!-- Video Embed (Below Subtitle) -->
-                <div class="visual-container">
-                    <div class="video-container-short">
-                        <!-- KUDAF Video ID: m0oNhyvq-nE -->
-                        <iframe src="https://www.youtube.com/embed/m0oNhyvq-nE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                <div class="info-box mt-4">
+                    <h5>Impact & Growth</h5>
+                    <p>회당 50명 이상의 신규 유입을 달성하며 조회수가 빠르게 상승했고, 출판사들의 컨택을 받아 계약 후 출간에 성공했습니다. 최종 누적 조회수 65만 회를 기록했습니다. 실패 직전의 상황에서도 데이터 분석과 실행을 통해 성과를 만든 경험을 통해, 도전→진단→개선의 전 과정이 성과로 이어진다는 확신을 얻었습니다.</p>
                 </div>
 
-                <div class="space-y-4">
-                     <div class="info-box">
-                        <p class="info-box-header">Problem</p>
-                        <p class="info-box-content">효창공원은 독립운동가들의 정신이 깃든 공간이지만, 일상에서 스쳐 지나가는 공원으로만 인식되고 있습니다. 특히 주변 주민·학생층에게조차 역사적 의미가 충분히 전달되지 못하고 있으며, 기념일(3·1절 등) 외에는 대중의 관심과 방문을 유도하기 어렵다는 문제를 안고 있습니다. 숏폼 전성시대 속에서, 정보 중심의 콘텐츠는 3초 이탈률이 높아 관심 확보 자체가 쉽지 않습니다. 대학 근처 명소를 소개하는 주제일수록, 소개 형태보다는 역사적 서사를 효과적으로 전달할 새로운 표현 방식이 절실했습니다.</p>
-                    </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Solution</p>
-                        <p class="info-box-content">'설명이 아닌 스토리텔링'을 중심에 두고, 독립운동가가 효창공원에서 직접 말을 걸어오는 듯한 숏폼 시리즈를 제작했습니다. 후킹을 위해 AI로 구현한 독립운동가의 실사 모습과 현재의 동상 이미지 교차 연출했으며, 감정 몰입을 위해 개인의 희생과 결의가 담긴 내러티브로 구성했습니다. 효창공원에 방문을 유도하는 CTA 문구 '그곳에서 다시 만납시다. 여기 효창공원에서'를 활용해, 국가 기념일마다 자연스럽게 떠올릴 수 있는 콘텐츠로 설계했습니다.</p>
-                    </div>
-                     <div class="info-box">
-                        <p class="info-box-header">Impact & Growth</p>
-                        <p class="info-box-content">숏폼 마케팅에 있어서 중요한 건, 후킹과 스토리텔링 능력임을 확인하는 기회였습니다. AI를 활용한 양산형 숏폼이 무한으로 생성되는 시대에, 시청자들에게 닿을 진정성 있는 메시지와 영상 기획이 필요함을 알게 됐습니다. 나아가 생성형 AI(Midjourney, Whisk, Kling 등) 기술을 활용해 과거 인물을 현재와 연결하는 연출을 구현함으로써, AI가 비용 절감을 위한 대체재가 아니라, 새로운 크리에이티브를 여는 스토리텔링 도구임을 증명했습니다.</p>
-                    </div>
+                <div class="info-box mt-4">
+                    <h5>etc.</h5>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-base mt-1">
+                        <li>각종 웹 콘텐츠 플랫폼들 경험</li>
+                        <li>독자 유입 분석</li>
+                        <li>플랫폼 성향 및 주력 장르 분석</li>
+                        <li>독자 후킹 포인트 분석</li>
+                        <li><strong>65만 조회수</strong> 상업 콘텐츠 구상과 집필</li>
+                    </ul>
                 </div>
             </div>
-        </div>
 
-        <!-- 3. 영상/숏폼 제작 -->
-        <div id="video_shortform_anchor" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">
-            <h3 class="text-3xl font-bold mb-12" style="color: var(--color-primary);">3. 영상/숏폼 제작</h3>
-
-            <!-- 1) Youtube -->
-            <div class="mb-12 pb-12 border-b border-gray-200">
-                <h4 class="text-2xl font-bold mb-2">1) 유튜브 제품 리뷰 채널 운영 ('잔취')</h4>
-                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">'덕질'을 영상 콘텐츠로 녹여내다</p>
-                
-                <!-- Image (Below Subtitle) -->
-                <div class="visual-container">
-                    <img src="https://placehold.co/600x450/F2EFE7/4A403A?text=YouTube+Review+Channel" alt="유튜브 키보드 리뷰">
+            <!-- 2. Marketing Strategy -->
+            <div id="marketing_strategy_anchor" class="mb-24 p-8 border-l-4 border-yellow-600">
+                <div class="flex items-end gap-4 mb-10">
+                    <span class="text-5xl md:text-6xl font-bold text-gray-500">02</span>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">마케팅 전략 기획</h3>
+                        <p class="text-gray-400 text-sm mt-1">CJ 프레시웨이 & KUDAF 프로젝트</p>
+                    </div>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="info-box">
-                        <p class="info-box-header">About</p>
-                        <p class="info-box-content">평소 관심이 있던 데스크 셋업이라는 취미를 제품 리뷰로 녹여낸 콘텐츠를 제작해 업로드 하고 있습니다. 마이너한 '키보드' 취미이지만, 세부 시장을 공략한 채널 운영으로 초반 영상부터 일정 수준 이상의 조회수를 유지할 수 있었습니다. 직접 채널 기획부터 영상 콘티 작성, 촬영, 녹음, 편집을 맡았습니다. 몇몇 브랜드에게 제품을 제공 받고 제작비를 지원받아 리뷰 영상을 제작했습니다. 브랜드가 원하는 방향과 소구점, 제품 설명 등을 참고하여 협업을 진행했습니다.</p>
+                <!-- 2-1 CJ -->
+                <div class="mb-16 pb-10 border-b border-gray-700">
+                    <h4 class="text-xl md:text-2xl font-bold mb-1">CJ 프레시웨이 대학생 외식 마케팅 아이디어 챌린지 | 대상</h4>
+                    <p class="project-subtitle">브랜드의 약점을 스토리로 설계하다</p>
+                    
+                    <div class="mb-7 flex justify-center">
+                        <img src="portfolioImg/cj.png" alt="CJ 프레시웨이 공모전" class="img-constrained">
                     </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Impact & Growth</p>
-                        <p class="info-box-content">유입을 늘릴 수 있는 유튜브 썸네일 제작과 제목, 소개글 설정을 분석 후 적용해 왔습니다. 직접 브랜드와의 협업 과정에서 진행되는 커뮤니케이션과 작업 스케줄 조정, 제품 리뷰 콘티안 제작과 검수 단계를 경험해볼 수 있었습니다. 트래픽이 적은 세부 시장을 공략해 조회수를 이끌어내기 위해서는, 해당 트래픽이 어느 영상으로 향하는지 모니터링 과정이 필수임을 알게 됐습니다. 이후 하나의 영상 제작을 위한 전반적인 기획과 제작 과정을 혼자서 진행할 수 있는 능력을 향상시킬 수 있었습니다.</p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="info-box">
+                            <h5>Problem</h5>
+                            <p> 호떡과 맥주를 페어링한 브랜드 '호맥'은 신선한 콘셉트를 가졌지만, 낮은 인지도와 조합의 생소함으로 인해 소비자의 진입 장벽이 존재했습니다. 특히 '치맥'이라는 강력한 경쟁 상대를 넘기 위해선, 처음 접하는 조합에 대한 어색함을 해소할 전혀 새로운 접근 방식이 필요했습니다.</p>
+                        </div>
+                        <div class="info-box">
+                            <h5>Solution</h5>
+                            <p> 호맥의 조합이 '원래부터 존재했던 전통처럼' 보이게 하는 서사를 기획해 역사 콘텐츠 '호맥정음'을 제작했습니다. '바이킹의 난파로 동양의 호떡과 서양의 맥주가 만났다'는 스토리를 만들고 ImageFX, Runway, Kling 등 생성형 AI 툴을 활용해 실재감 있는 폼 콘텐츠로 구현했습니다. 유머와 페이크 다큐 형식을 결합해, 낯선 조합을 익숙하게 받아들이도록 유도했습니다.</p>
+                        </div>
                     </div>
-                    <a href="https://www.youtube.com/@Zanqu" target="_blank" class="inline-block font-semibold mt-4 text-base" style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary);">
-                        채널 링크: https://www.youtube.com/@Zanqu <i class="fas fa-external-link-alt ml-1"></i>
+                    <div class="info-box mt-5">
+                        <h5>Impact & Growth</h5>
+                        <p> 생소했던 생성형 AI 툴을 끊임없는 탐구를 통해 학습하며, 첫 시도임에도 불구하고 높은 퀄리티의 결과물로 1위를 달성했습니다. 콘텐츠의 전략적 기획과 신선함, 브랜드의 약점을 서사로 풀어낸 시도에서 높은 평가를 받았습니다. 이 경험을 통해 저는 브랜드 마케팅이 단순히 '알리는 것'을 넘어, 사람들이 '이야기하게 만드는 것'이라는 확신을 갖게 되었습니다. 브랜드의 약점을 통찰로 전환하고, 콘텐츠로 풀어 내는 전략은, 저만의 기획 역량이 되었습니다.</p>
+                    </div>
+
+                    <a href="https://youtube.com/shorts/tCbv9pAHAvQ?si=QH7HMpJL3DzO1MCK" target="_blank" class="link-btn mt-4">
+                        <span><i class="fab fa-youtube text-red-500 text-xl"></i> 호맥정음 영상 보기 (YouTube)</span>
+                        <i class="fas fa-arrow-right link-arrow"></i>
+                    </a>
+                </div>
+
+                <!-- 2-2 KUDAF -->
+                <div>
+                    <h4 class="text-xl md:text-2xl font-bold mb-1">대한민국 대학생 디지털 광고제 KUDAF | 대상</h4>
+                    <p class="project-subtitle">숏폼을 통해 현실에서 검증받는 콘텐츠를 만들다</p>
+                    
+                    <div class="mb-7 flex justify-center">
+                        <img src="portfolioImg/kudaf.png" alt="KUDAF 공모전" class="img-constrained">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="info-box">
+                            <h5>Problem</h5>
+                            <p> 효창공원은 독립운동가들의 정신이 깃든 공간이지만, 일상에서 스쳐 지나가는 공원으로만 인식되고 있습니다. 특히 주변 주민·학생층에게조차 역사적 의미가 충분히 전달되지 못하고 있으며, 기념일(3·1절 등) 외에는 대중의 관심과 방문을 유도하기 어렵다는 문제를 안고 있습니다. 
+  또, 숏폼 전성시대 속에서, 정보 중심의 콘텐츠는 3초 이탈률이 높아 관심 확보 자체가 쉽지 않습니다. 대학 근처 명소를 소개하는 주제일수록, 소개 형태보다는 역사적 서사를 효과적으로 전달할 새로운 표현 방식이 절실했습니다.</p>
+                        </div>
+                        <div class="info-box">
+                            <h5>Solution</h5>
+                            <p> '설명'이 아닌 '스토리텔링'을 중심에 두고, 독립운동가가 직접 말을 걸어오는 숏폼 시리즈를 제작했습니다. 후킹을 위해 AI로 구현한 독립운동가의 실사 모습과 현재의 동상 이미지 교차 연출했으며, 감정 몰입을 위해 개인의 희생과 결의가 담긴 내러티브로 구성했습니다. 
+이에 더해 효창공원에 방문을 유도하는 CTA 문구 '그곳에서 다시 만납시다. 여기 효창공원에서'를 활용해, 국가 기념일마다 자연스럽게 떠올릴 수 있는 콘텐츠로 설계했습니다.</p>
+                        </div>
+                    </div>
+                    <div class="info-box mt-5">
+                        <h5>Impact & Growth</h5>
+                        <p>숏폼 마케팅에 있어서 중요한 건, 후킹과 스토리텔링 능력임을 확인하는 기회였습니다. AI를 활용한 양산형 숏폼이 무한으로 생성되는 시대에, 시청자들에게 닿을 진정성 있는 메시지와 영상 기획이 필요함을 알게 됐습니다. 나아가 생성형 AI(Midjourney, Whisk, Kling 등) 기술을 활용해 과거 인물을 현재와 연결하는 연출을 구현함으로써, AI가 비용 절감을 위한 대체재가 아니라, 새로운 크리에이티브를 여는 스토리텔링 도구임을 증명했습니다.</p>
+                    </div>
+
+                    <a href="https://youtu.be/m0oNhyvq-nE?si=TpBZDvJAF6cD_Uq5" target="_blank" class="link-btn mt-4">
+                        <span><i class="fab fa-youtube text-red-500 text-xl"></i> [KUDAF] Team 눈송이 납치단 영상 보기</span>
+                        <i class="fas fa-arrow-right link-arrow"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- 2) SNS -->
-            <div class="mb-12 pb-12 border-b border-gray-200">
-                <h4 class="text-2xl font-bold mb-2">2) 스토리텔링 기반 SNS 계정 운영</h4>
-                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">'썰'과 '사랑', 'AI'의 조합</p>
-                
-                <!-- Image (Below Subtitle) -->
-                <div class="visual-container">
-                    <img src="https://placehold.co/600x450/F2EFE7/4A403A?text=SNS+Feed+Layout" alt="SNS 피드">
+            <!-- 3. Video/Short-form -->
+            <div id="video_shortform_anchor" class="mb-24 p-8 border-l-4 border-yellow-600">
+                <div class="flex items-end gap-4 mb-10">
+                    <span class="text-5xl md:text-6xl font-bold text-gray-500">03</span>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">영상/숏폼 제작</h3>
+                    </div>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="info-box">
-                        <p class="info-box-header">About</p>
-                        <p class="info-box-content">교내 자기주도진로프로젝트의 일환으로, 직접 상업적으로 활용 가능한 SNS 계정을 운영했습니다. 각종 커뮤니티나 플랫폼에 있는 다양한 이야기들을 소싱해 새로운 스토리로 재구성, 이를 AI를 활용한 영상으로 제작했습니다. 이외에도, 공유하기 좋은 캐러셀을 제작하고 스토리텔링 기반의 콘텐츠에 초점을 맞추어 기획 능력을 기를 수 있었습니다.</p>
+                <!-- 3-1 잔취 -->
+                <div class="mb-10 p-6 card review-layout">
+                    <div class="side-imgs">
+                        <h4 class="text-xl font-bold mb-2 w-full md:text-left">1) 유튜브 제품 리뷰 채널 운영 ('잔취')</h4>
+                        <p class="project-subtitle text-left w-full md:text-left">'덕질'을 영상 콘텐츠로 녹여내다</p>
+                        <div class="img-container">
+                            <img src="portfolioImg/zanqu1.png" alt="유튜브 채널 1" class="w-full">
+                            <img src="portfolioImg/zanqu2.png" alt="유튜브 채널 2" class="w-full">
+                        </div>
                     </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Impact & Growth</p>
-                        <p class="info-box-content">단순 제작이 아닌 브랜딩, 콘텐츠 운영·유통·분석까지 전 과정 경험하며 전반적 콘텐츠 시장에 대한 이해도를 향상시켰습니다. AI를 활용한 스토리 기반 숏폼 제작을 통해 콘텐츠 및 IP 기획 역량 확보, IP 산업 구조에 대한 시야 확장을 바탕으로 콘텐츠 마케팅 직무와 연결되는 역량을 강화했습니다.</p>
+                    <div>
+                        <div class="info-box mb-4">
+                            <h5>Problem</h5>
+                            <p>평소 관심이 있던 데스크 셋업이라는 취미를 제품 리뷰로 녹여낸 콘텐츠를 제작해 업로드하고 싶었으나, 마이너한 '키보드' 취미로 콘텐츠 파생에 한계가 있었습니다. 게다가 이미 해당 카테고리에서 자리를 잡은 유명 크리에이터들이 많았습니다. 이 카테고리를 즐겨 찾는 시청자들 풀이 좁기 때문에 이에 맞는 콘텐츠를 구상해야 했습니다.</p>
+                        </div>
+                        <div class="info-box mb-4">
+                            <h5>solution</h5>
+                            <p>세부 시장을 공략한 채널 운영이 메리트가 될 수 있도록, 이미 일정 트래픽을 보유하고 있는 작은 규모의 키보드 브랜드를 활용하기로 했습니다. 이후 브랜드 사의 제품을 모두 비교하는 영상을 제작해 업로드 후, 브랜드 자체 채널에 링크가 되고, 초반 영상부터 일정 수준 이상의 조회수를 유지할 수 있었습니다.</p>
+                        </div>
+                        <div class="info-box mb-4">
+                            <h5>Impact & Growth</h5>
+                            <p>유입을 늘릴 수 있는 유튜브 썸네일 제작과 제목, 소개글 설정을 분석 후 적용해 왔습니다. 몇몇 브랜드에게 제품을 제공 받고 제작비를 지원받아 리뷰 영상을 제작했으며, 브랜드가 원하는 방향과 소구점, 제품 설명 등을 참고하여 협업을 진행할 수 있었습니다. 이 과정에서 직접 브랜드와의 협업 과정에서 진행되는 커뮤니케이션과 작업 스케줄 조정, 제품 리뷰 콘티안 제작과 검수 단계를 경험했습니다. 
+ 트래픽이 적은 세부 시장을 공략해 조회수를 이끌어내기 위해서는, 해당 트래픽이 어느 영상으로 향하는지 모니터링 과정이 필수임을 알게 됐습니다. 직접 채널 기획부터 영상 콘티 작성, 촬영, 녹음, 편집을 할 수 있는 전반적 능력을 길렀습니다. </p>
+                        </div>
+                        <a href="https://www.youtube.com/@Zanqu" target="_blank" class="link-btn mt-2">
+                            <span><i class="fab fa-youtube text-red-500 text-xl"></i> 유튜브 채널 '잔취' 바로가기</span>
+                            <i class="fas fa-arrow-right link-arrow"></i>
+                        </a>
                     </div>
-                    <a href="https://www.instagram.com/nemo.story_/" target="_blank" class="inline-block font-semibold mt-4 text-base" style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary);">
-                        Instagram: @nemo.story_ <i class="fas fa-external-link-alt ml-1"></i>
+                </div>
+
+                <!-- 3-2 SNS -->
+                <div class="mb-12 pb-10 border-b border-gray-700">
+                    <div class="card p-6">
+                        <h4 class="text-xl font-bold mb-2">2) 스토리텔링 기반 SNS 계정 운영</h4>
+                        <p class="project-subtitle">'썰'과 '사랑', 'AI'의 조합</p>
+                        
+                        <div class="mb-7 flex justify-center">
+                            <img src="portfolioImg/sns.jpeg" alt="SNS Storytelling" class="img-constrained-full">
+                        </div>
+
+                        <div class="info-box mb-4">
+                            <h5>About</h5>
+                            <p>교내 자기주도진로프로젝트의 일환으로, 직접 상업적으로 활용 가능한 SNS 계정을 운영했습니다. 각종 커뮤니티나 플랫폼에 있는 다양한 이야기들을 소싱해 새로운 스토리로 재구성, 이를 AI를 활용한 영상으로 제작했습니다. 이외에도, 공유하기 좋은 캐러셀을 제작하고 스토리텔링 기반의 콘텐츠에 초점을 맞추어 기획 능력을 기를 수 있었습니다.</p>
+                        </div>
+                        <div class="info-box mb-4">
+                            <h5>Impact & Growth</h5>
+                            <p>단순 제작이 아닌 브랜딩, 콘텐츠 운영·유통·분석까지 전 과정 경험하며 전반적 콘텐츠 시장에 대한 이해도를 향상시켰습니다. AI를 활용한 스토리 기반 숏폼 제작을 통해 콘텐츠 및 IP 기획 역량 확보, IP 산업 구조에 대한 시야 확장을 바탕으로 콘텐츠 마케팅 직무와 연결되는 역량을 강화했습니다.</p>
+                        </div>
+                        <a href="https://www.instagram.com/nemo.story_/?utm_source=ig_embed&ig_rid=0be6a0ba-277b-4005-8e71-1aa8a0ba0e0a" target="_blank" class="link-btn mt-2">
+                            <span><i class="fab fa-instagram text-pink-500 text-xl"></i> 인스타그램 @nemo.story_ 바로가기</span>
+                            <i class="fas fa-arrow-right link-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3-3 공포게임 -->
+                <div class="mb-10 card p-6">
+                    <h4 class="text-xl font-bold mb-2">3) 유튜브 선택형 공포게임 콘텐츠 기획</h4>
+                    <p class="project-subtitle">보는 콘텐츠를, '참여하는 콘텐츠'로 바꾸다</p>
+
+                    <div class="img-row">
+                        <img src="portfolioImg/horror.png" alt="공포게임 1">
+                        <img src="portfolioImg/horror2.png" alt="공포게임 2">
+                    </div>
+
+                    <div class="info-box mb-4">
+                        <h5>Problem</h5>
+                        <p>외국 신화 속 요괴들은 다양한 콘텐츠로 재해석되어 널리 알려진 반면, 한국 신화 속 요괴들은 대중적 인식이 낮고 흥미 유발 요소가 부족했습니다. 이를 또래 학생들에게 흥미롭게 전달하기 위해서는 현대적 재구성과 친숙한 매체 활용이 필수라고 판단했습니다. 그들에게 익숙한 방식으로 몰입감 있게 접근할 콘텐츠 구조가 필요했습니다.</p>
+                    </div>
+                    <div class="info-box mb-4">
+                        <h5>Solution</h5>
+                        <p>따라서 유튜브 추천 영상 기능을 활용한 선택형 참여 게임을 기획했습니다. 학교라는 공간과 유튜브라는 매체를 결합해, 플레이어의 선택에 따라 결말이 달라지는 구조로 몰입감을 극대화했습니다. 촬영과 편집을 담당해 공포감을 높이기 위해 1인칭 시점과 사운드 연출을 더했으며, 캐릭터 굿즈를 기획해 커뮤니티 참여와 피드백 수집까지 고려한 확산형 구조를 실행했습니다.</p>
+                    </div>
+                    <div class="info-box mb-4">
+                        <h5>Impact & Growth</h5>
+                        <p>실제 유튜브 채널 운영, 1,300회 이상의 조회수와 60개 이상의 댓글 유도 총 21개의 영상을 직접 기획·제작하며 참여형 콘텐츠 구조를 설계했습니다. 단순 정보 전달을 넘어, 사용자의 참여를 유도하는 인터랙티브 콘텐츠를 실현한 경험이었습니다. 전통 신화를 놀이화한 시도는 학우들의 폭발적인 반응을 이끌어냈습니다. Z세대 타깃 콘텐츠를 전략적으로 기획하고 확산시키는 실전 감각을 키울 수 있었습니다. 낯선 주제를 더 가깝고 익숙한 방식으로 새롭게 풀어내는 기획 역량과 도전 정신을 함께 성장시킨 프로젝트였습니다.</p>
+                    </div>
+                    <a href="https://youtu.be/IWuy4RnA1ag?si=OcL65o4N9_n4lRYb" target="_blank" class="link-btn mt-2">
+                        <span><i class="fab fa-youtube text-red-500 text-xl"></i> 게임 영상 링크 (YouTube)</span>
+                        <i class="fas fa-arrow-right link-arrow"></i>
+                    </a>
+                </div>
+
+                <!-- 3-4 AI 숏폼 광고 -->
+                <div class="card p-6">
+                    <h4 class="text-xl font-bold mb-2">4) 브랜드 제품 AI 숏폼 광고 (공모전)</h4>
+                    <p class="project-subtitle">제품의 핵심 기능을 스토리로 풀어내다</p>
+
+                    <div class="mb-7 flex justify-center">
+                        <img src="portfolioImg/biodance.png" alt="AI Ad" class="img-constrained">
+                    </div>
+
+                    <div class="info-box mb-4">
+                        <h5>Problem</h5>
+                        <p>브랜드 자체에서 제안한 영상의 컨셉이 '귀엽고 따뜻한' 무드였으며, 동물 캐릭터 등을 활용한 라이트한 숏폼 영상이었습니다. 하지만 최근 ai를 활용한 캐릭터 영상이 쏟아지고 있으며 ai에 대한 피로도가 조금씩 누적되고 있는 상황에서, 타깃층인 2-30대 여성에게 더욱 효과적으로 다가갈 방법이 필요했습니다.</p>
+                    </div>
+                    <div class="info-box mb-4">
+                        <h5>Solution</h5>
+                        <p>타깃인 2-30대 여성이 자연스럽게 공감할 수 있는 실사 동물 다큐의 형식을 차용해, AI 특유의 이질감을 최소화하고 귀엽고 편안한 숏폼을 기획했습니다. 실사 기반의 리얼리티와 AI가 구현할 수 있는 독창적 동작 사이의 경계를 정교하게 조율해 콘텐츠를 제작했으며, 이를 통해 AI만이 할 수 있는 것과 그렇지 못한 지점을 정확하게 파악하고 활용하는 역량을 갖추게 되었습니다.</p>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=ZrpyisT9WhQ" target="_blank" class="link-btn mt-2">
+                        <span><i class="fab fa-youtube text-red-500 text-xl"></i> AI 숏폼 광고 영상 보기 (YouTube)</span>
+                        <i class="fas fa-arrow-right link-arrow"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- 3) Horror Game -->
-            <div class="mb-12 pb-12 border-b border-gray-200">
-                <h4 class="text-2xl font-bold mb-2">3) 유튜브 선택형 공포게임 콘텐츠 기획</h4>
-                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">보는 콘텐츠를, '참여하는 콘텐츠'로 바꾸다</p>
-                
-                <!-- Image (Below Subtitle) -->
-                <div class="visual-container">
-                    <img src="https://placehold.co/600x450/F2EFE7/4A403A?text=Interactive+Horror+Game" alt="선택형 공포게임">
+            <!-- 4. Data UA -->
+            <div id="data_ua_anchor" class="mb-16 p-8 border-l-4 border-yellow-600">
+                <div class="flex items-end gap-4 mb-8">
+                    <span class="text-5xl md:text-6xl font-bold text-gray-500">04</span>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">데이터 기반 UA</h3>
+                        <p class="project-subtitle">네이버 랭킹 1위 달성 및 PV 극대화 실무</p>
+                        <p class="text-gray-400 text-sm mt-1">Fastview 제작사업본부 인턴</p>
+                    </div>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="info-box">
-                        <p class="info-box-header">Problem</p>
-                        <p class="info-box-content">외국 신화 속 요괴들은 다양한 콘텐츠로 재해석되어 널리 알려진 반면, 한국 신화 속 요괴들은 대중적 인식이 낮고 흥미 유발 요소가 부족했습니다. 이를 또래 학생들에게 흥미롭게 전달하기 위해서는 현대적 재구성과 친숙한 매체 활용이 필수라고 판단했습니다. 그들에게 익숙한 방식으로 몰입감 있게 접근할 콘텐츠 구조가 필요했습니다.</p>
-                    </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Solution</p>
-                        <p class="info-box-content">따라서 유튜브 추천 영상 기능을 활용한 선택형 참여 게임을 기획했습니다. 학교라는 공간과 유튜브라는 매체를 결합해, 플레이어의 선택에 따라 결말이 달라지는 구조로 몰입감을 극대화했습니다. 촬영과 편집을 담당해 공포감을 높이기 위해 1인칭 시점과 사운드 연출을 더했으며, 캐릭터 굿즈를 기획해 커뮤니티 참여와 피드백 수집까지 고려한 확산형 구조를 실행했습니다.</p>
-                    </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Impact & Growth</p>
-                        <p class="info-box-content">실제 유튜브 채널 운영, 1,300회 이상의 조회수와 60개 이상의 댓글 유도 총 21개의 영상을 직접 기획·제작하며 참여형 콘텐츠 구조를 설계했습니다. 단순 정보 전달을 넘어, 사용자의 참여를 유도하는 인터랙티브 콘텐츠를 실현한 경험이었습니다. 전통 신화를 놀이화한 시도는 학우들의 폭발적인 반응을 이끌어냈습니다. Z세대 타깃 콘텐츠를 전략적으로 기획하고 확산시키는 실전 감각을 키울 수 있었습니다. 낯선 주제를 더 가깝고 익숙한 방식으로 새롭게 풀어내는 기획 역량과 도전 정신을 함께 성장시킨 프로젝트였습니다.</p>
-                    </div>
-                    <a href="https://youtu.be/IWuy4RnAlag?si=5N-u02mtyeiQROTc" target="_blank" class="inline-block font-semibold mt-4 text-base" style="color: var(--color-primary); border-bottom: 2px solid var(--color-secondary);">
-                        게임 영상 링크 <i class="fas fa-external-link-alt ml-1"></i>
+                <div class="img-row" style="grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 0.75rem;">
+                    <img src="portfolioImg/fastview2.png" alt="인턴 업무 1">
+                    <img src="portfolioImg/fastview.png" alt="인턴 업무 2">
+                </div>
+
+                <div class="info-box mt-5">
+                    <h5>Achievement</h5>
+                    <ul class="list-disc pl-5 space-y-2 mt-1">
+                        <li><strong>PV 성과:</strong> 네이버, MSN 등에 연예부 기사를 작성하여 <span class="text-yellow-500 font-bold">누적 2,572,876회 달성</span>. (정량적 UA 성과)</li>
+                        <li><strong>최고 성과:</strong> 보도자료 기반 블랙핑크 종합 기사로 하루 만에 <span class="text-yellow-500 font-bold">네이버 랭킹 1위</span> 차지하며 콘텐츠 유통 및 UA 효율성 입증, 겨울왕국 외신 기사로 네이버 연예 페이지 메인에 등록</li>
+                        <li><strong>역량:</strong> 이슈 발굴 및 플랫폼 특성에 맞춘 콘텐츠 최적화 실행</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-wrap gap-4 mt-4">
+                    <a href="https://m.entertain.naver.com/home/article/213/0001300836" target="_blank" class="link-btn">
+                        <span><i class="fas fa-external-link-alt text-yellow-500"></i> 블랙핑크 기사 보기</span>
+                        <i class="fas fa-arrow-right link-arrow"></i>
+                    </a>
+                    <a href="https://m.entertain.naver.com/home/article/213/0001305887" target="_blank" class="link-btn">
+                        <span><i class="fas fa-external-link-alt text-yellow-500"></i> 겨울왕국 기사 보기</span>
+                        <i class="fas fa-arrow-right link-arrow"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- 4) AI Ad -->
-            <div>
-                <h4 class="text-2xl font-bold mb-2">4) 브랜드 제품 AI 숏폼 광고 (공모전)</h4>
-                <p class="text-xl font-semibold mb-6" style="color: var(--color-text-mid);">제품의 핵심 기능을 스토리로 풀어내다</p>
-                
-                <!-- Video Embed (Below Subtitle) -->
-                <div class="visual-container">
-                    <div class="video-container-short">
-                        <!-- AI Ad Video ID: ZrpyisT9WhQ -->
-                        <iframe src="https://www.youtube.com/embed/ZrpyisT9WhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="info-box">
-                        <p class="info-box-header">Problem</p>
-                        <p class="info-box-content">브랜드 자체에서 제안한 영상의 컨셉이 '귀엽고 따뜻한' 무드였으며, 동물 캐릭터 등을 활용한 라이트한 숏폼 영상이었습니다. 하지만 최근 ai를 활용한 캐릭터 영상이 쏟아지고 있으며 ai에 대한 피로도가 조금씩 누적되고 있는 상황에서, 타깃층인 2-30대 여성에게 더욱 효과적으로 다가갈 방법이 필요했습니다.</p>
-                    </div>
-                    <div class="info-box">
-                        <p class="info-box-header">Solution</p>
-                        <p class="info-box-content">타깃인 2-30대 여성이 자연스럽게 공감할 수 있는 실사 동물 다큐의 형식을 차용해, AI 특유의 이질감을 최소화하고 귀엽고 편안한 숏폼을 기획했습니다. 실사 기반의 리얼리티와 AI가 구현할 수 있는 독창적 동작 사이의 경계를 정교하게 조율해 콘텐츠를 제작했으며, 이를 통해 AI만이 할 수 있는 것과 그렇지 못한 지점을 정확하게 파악하고 활용하는 역량을 갖추게 되었습니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. 데이터 기반 UA -->
-        <div id="data_ua_anchor" class="project-section p-8 md:p-12 rounded-xl shadow-lg mb-16" style="background-color: var(--color-surface); border-left: 6px solid var(--color-primary);">
-            <h3 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">4. 데이터 기반 UA: 네이버 랭킹 1위 달성</h3>
-            
-            <!-- Image (Below Title) -->
-            <div class="visual-container">
-                <img src="https://placehold.co/400x300/F2EFE7/4A403A?text=Naver+Ranking" alt="네이버 랭킹 1위">
-            </div>
-
-            <div class="space-y-4" style="color: var(--color-text-mid);">
-                <ul class="list-disc list-outside ml-5 space-y-3 text-lg">
-                    <li><span class="font-bold" style="color: var(--color-primary);">PV 성과:</span> 네이버, MSN 등에 연예부 기사를 작성하여 <span class="highlight-text">누적 2,572,876회 달성</span>. (정량적 UA 성과)</li>
-                    <li><span class="font-bold" style="color: var(--color-primary);">최고 성과:</span> 보도자료 기반 블랙핑크 종합 기사로 하루 만에 <span class="highlight-text">네이버 랭킹 1위</span> 차지하며 콘텐츠 유통 및 UA 효율성 입증, 겨울왕국 외신 기사로 네이버 연예 페이지 메인에 등록</li>
-                    <li><span class="font-bold" style="color: var(--color-primary);">역량:</span> 이슈 발굴 및 플랫폼 특성에 맞춘 콘텐츠 최적화 실행.</li>
-                </ul>
-                <div class="flex gap-4 pt-4">
-                    <a href="https://m.entertain.naver.com/home/article/213/0001300836" target="_blank" class="text-base font-semibold" style="color: var(--color-primary); border-bottom: 1px solid var(--color-secondary);">블랙핑크 기사 <i class="fas fa-external-link-alt"></i></a>
-                    <a href="https://m.entertain.naver.com/home/article/213/0001305887" target="_blank" class="text-base font-semibold" style="color: var(--color-primary); border-bottom: 1px solid var(--color-secondary);">겨울왕국 기사 <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <footer id="contact" class="py-12" style="background-color: var(--color-text-dark);">
-        <div class="max-w-7xl mx-auto px-6 text-center text-white">
-            <h3 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">Contact</h3>
-            <p class="text-xl mb-2">twinab0809@naver.com</p>
-            <p class="text-xl mb-6">010-3371-2981</p>
-            <p class="text-sm mt-8" style="color: #A0968F;">도전은 나를 성장시킨다는 확신으로, 콘텐츠를 통해 선한 영향력을 전달하겠습니다.</p>
+    <!-- Footer -->
+    <footer id="contact" class="py-20 border-t">
+        <div class="container-width text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Contact Me</h2>
+            <div class="text-lg md:text-xl space-y-1 mb-8">
+                <p>010-3371-2981</p>
+                <p>twinab0809@naver.com</p>
+            </div>
+            <p class="text-xs md:text-sm">
+                도전은 나를 성장시킨다는 확신으로, 콘텐츠의 선한 영향력을 전달하겠습니다.<br>
+                © 2025 SANHA KIM. All rights reserved.
+            </p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+        // Progress Bar Animation
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const item = entry.target;
+                const bar = item.querySelector('.skill-fill');
+                if (entry.isIntersecting && bar) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.skill-item').forEach(item => {
+            skillObserver.observe(item);
         });
 
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+                e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - navHeight;
+                    const targetPosition = targetElement.offsetTop - navHeight - 8;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
         });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.width = entry.target.getAttribute('style').match(/width:\s*(\d+%)/)[1];
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => { bar.style.width = width; }, 500);
-        });
     </script>
 </body>
 </html>
+
