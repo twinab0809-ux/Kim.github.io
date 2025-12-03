@@ -24,11 +24,11 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
         :root {
-            --color-primary: #FFD94A;       /* 메인 옐로우 (카카오톤) */
-            --color-primary-soft: #FFF7D1;  /* 연한 옐로우 배경 */
-            --color-accent-blue: #4F8DF7;   /* 포인트 블루 (토스톤 살짝) */
-            --color-bg: #F5F7FB;           /* 전체 배경 */
-            --color-surface: #FFFFFF;      /* 카드 배경 */
+            --color-primary: #FFD94A; 	    /* 메인 옐로우 (카카오톤) */
+            --color-primary-soft: #FFF7D1;	/* 연한 옐로우 배경 */
+            --color-accent-blue: #4F8DF7;	/* 포인트 블루 (토스톤 살짝) */
+            --color-bg: #F5F7FB; 	        /* 전체 배경 */
+            --color-surface: #FFFFFF; 	    /* 카드 배경 */
             --color-text-main: #111827;
             --color-text-sub: #4B5563;
             --color-border-soft: #E5E7EB;
@@ -41,6 +41,8 @@
         }
 
         body {
+            /* PC 구조 유지를 위해 최소 너비 강제 (1040px 컨테이너 + 여백) */
+            min-width: 1080px; 
             margin: 0;
             font-family: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
             background:
@@ -438,13 +440,15 @@
             color: #CBD5F5;
         }
 
+        /* ⭐️ 부제목 강조를 위한 크기 키움 (1.05rem -> 1.75rem) */
         .project-subtitle {
             color: var(--color-primary);
-            font-size: 1.05rem;
+            font-size: 1.75rem; /* 28px */
             font-weight: 700;
             margin-top: 0.5rem;
             margin-bottom: 0.75rem;
-            line-height: 1.5;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
         }
 
         /* ---------- 이미지 공통 ---------- */
@@ -471,7 +475,8 @@
 
         .img-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            /* PC 구조 유지 강제 */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
             gap: 1rem;
             margin: 1.6rem auto;
             max-width: 980px;
@@ -505,7 +510,8 @@
         /* ---------- Video/Review Layout ---------- */
         .review-layout {
             display: grid;
-            grid-template-columns: 1.1fr 1.5fr;
+            /* PC 구조 유지 강제 */
+            grid-template-columns: 1.1fr 1.5fr; 
             gap: 2rem;
             align-items: flex-start;
         }
@@ -580,53 +586,7 @@
             color: #6B7280 !important;
         }
 
-        /* ---------- 반응형 ---------- */
-        @media (max-width: 1024px) {
-            .review-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                padding-top: 4rem;
-            }
-
-            .container-width {
-                padding-inline: 1.25rem;
-            }
-
-            h1 {
-                font-size: 2.4rem;
-            }
-
-            .project-card {
-                padding: 1.8rem 1.6rem;
-            }
-
-            .review-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .img-row {
-                grid-template-columns: 1fr;
-            }
-
-            #data_ua_anchor .img-row {
-                grid-template-columns: 1fr !important;
-                max-width: 100%;
-            }
-
-            #data_ua_anchor .img-row img {
-                max-width: 100%;
-                width: 100%;
-                height: auto;
-            }
-
-            .core-nav-inner {
-                border-radius: 18px;
-            }
-        }
+        /* PC 구조 유지를 위해 반응형 미디어 쿼리 블록은 삭제함 */
     </style>
 </head>
 <body>
@@ -639,7 +599,8 @@
                     <span class="logo-dot"></span>
                     <span>SANHA <span style="color:var(--color-primary)">KIM</span></span>
                 </a>
-                <div class="hidden md:flex space-x-10 text-base font-medium tracking-wide">
+                <!-- md:flex -> flex 로 변경하여 항상 메뉴가 보이도록 강제 -->
+                <div class="flex space-x-10 text-base font-medium tracking-wide">
                     <a href="#about" class="nav-link hover:text-yellow-500 transition">ABOUT</a>
                     <a href="#projects" class="nav-link hover:text-yellow-500 transition">PROJECTS</a>
                     <a href="#contact" class="nav-link hover:text-yellow-500 transition">CONTACT</a>
@@ -650,8 +611,10 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section flex items-center justify-center p-4 sm:p-8 min-h-[75vh]">
-        <div class="container-width grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div class="lg:w-full text-center md:text-left order-2 md:order-1">
+        <!-- md:grid-cols-2 -> grid-cols-2 로 변경하여 항상 2열 구조 강제 -->
+        <div class="container-width grid grid-cols-2 gap-10 lg:gap-16 items-center">
+            <!-- order-2 md:order-1 -> order-2 로 변경하여 순서 유지 강제 -->
+            <div class="lg:w-full text-center md:text-left order-2">
                 <p class="hero-pill mb-4">PORTFOLIO</p>
                 <h1 class="text-4xl md:text-6xl font-bold mb-5 leading-tight">
                     김산하<br>
@@ -665,9 +628,10 @@
                     <p><i class="fas fa-phone text-yellow-600 mr-2"></i> 010-3371-2981</p>
                 </div>
             </div>
-            <div class="flex justify-center order-1 md:order-2">
+            <!-- order-1 md:order-2 -> order-1 로 변경하여 순서 유지 강제 -->
+            <div class="flex justify-center order-1">
                 <div class="hero-profile-wrap">
-                    <img src="portfolioImg/profile.png" alt="Profile" class="hero-profile">
+                    <img src="portfolioImg/profile.png" onerror="this.onerror=null; this.src='https://placehold.co/304x304/FFD94A/111827?text=SANHA+KIM';" alt="Profile" class="hero-profile">
                 </div>
             </div>
         </div>
@@ -675,7 +639,8 @@
 
     <!-- About & Skills -->
     <section id="about">
-        <div class="container-width grid lg:grid-cols-2 gap-16">
+        <!-- lg:grid-cols-2 -> grid-cols-2 로 변경하여 항상 2열 구조 강제 -->
+        <div class="container-width grid grid-cols-2 gap-16">
             <!-- Left: About Text & Awards -->
             <div>
                 <h2 class="section-title border-l-4 border-yellow-400 pl-4">About Me</h2>
@@ -793,7 +758,8 @@
             <h3 class="text-sm md:text-base font-bold text-center tracking-[0.18em] uppercase mb-4 text-white">
                 핵심 역량 및 스킬
             </h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-3">
+            <!-- md:grid-cols-4 -> grid-cols-4 로 변경하여 항상 4열 구조 강제 -->
+            <div class="grid grid-cols-4 gap-3 md:gap-4 mt-3">
                 <a href="#ip_contents" class="core-pill">
                     <span class="emoji">📚</span>
                     <span>IP/콘텐츠 이해</span>
@@ -826,16 +792,18 @@
                 <div class="flex items-center gap-4 mb-6">
                     <span class="project-index">01</span>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-1 text-white">IP/콘텐츠 이해</h3>
+                        <!-- ⭐️ 글자 크기 조정 (text-2xl md:text-3xl -> text-xl md:text-2xl) -->
+                        <h3 class="text-xl md:text-2xl font-bold mb-1 text-white">IP/콘텐츠 이해</h3>
                         <p class="project-subtitle">웹소설 작가 경험</p>
                     </div>
                 </div>
                 
                 <div class="visual-container mb-6">
-                    <img src="portfolioImg/webnovel.png" alt="웹소설 섬네일" class="img-constrained">
+                    <img src="portfolioImg/webnovel.png" onerror="this.onerror=null; this.src='https://placehold.co/600x380/FFD94A/111827?text=Webnovel+Cover+Image';" alt="웹소설 섬네일" class="img-constrained">
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <!-- md:grid-cols-2 -> grid-cols-2 로 변경하여 항상 2열 구조 강제 -->
+                <div class="grid grid-cols-2 gap-6">
                     <div class="info-box">
                         <h5 class="info-box-header">Problem</h5>
                         <p>웹소설 무료 연재를 시작했지만, 독자 유입과 조회수가 극히 낮아 작품의 사업성에 의문이 생겼고, 연재 지속 여부를 고민해야 하는 상황에 놓였습니다.</p>
@@ -868,24 +836,26 @@
                 <div class="flex items-end gap-4 mb-8">
                     <span class="project-index">02</span>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-1 text-white">마케팅 전략 기획</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-1 text-white">마케팅 전략 기획</h3>
                         <p class="text-gray-400 text-sm mt-1">CJ 프레시웨이 & KUDAF 프로젝트</p>
                     </div>
                 </div>
 
                 <!-- CJ Freshway -->
                 <div class="mb-16 pb-8 border-b border-gray-200">
-                    <h4 class="text-2xl font-bold mb-2 text-white">CJ 프레시웨이 대학생 외식 마케팅 아이디어 챌린지 | 대상</h4>
+                    <!-- ⭐️ 글자 크기 조정 (text-2xl -> text-xl) -->
+                    <h4 class="text-xl font-bold mb-2 text-white">CJ 프레시웨이 대학생 외식 마케팅 아이디어 챌린지 | 대상</h4>
                     <p class="project-subtitle">브랜드의 약점을 스토리로 설계하다</p>
                     
                     <div class="mb-6 flex justify-center">
-                        <img src="portfolioImg/cj.png" alt="CJ 프레시웨이 공모전" class="img-constrained">
+                        <img src="portfolioImg/cj.png" onerror="this.onerror=null; this.src='https://placehold.co/600x380/FFD94A/111827?text=CJ+Freshway+Contest+Image';" alt="CJ 프레시웨이 공모전" class="img-constrained">
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <!-- md:grid-cols-2 -> grid-cols-2 로 변경하여 항상 2열 구조 강제 -->
+                    <div class="grid grid-cols-2 gap-6">
                         <div class="info-box">
                             <h5 class="info-box-header">Problem</h5>
-                            <p> 호떡과 맥주를 페어링한 브랜드 '호맥'은 신선한 콘셉트를 가졌지만, 낮은 인지도와 조합의 생소함으로 인해 소비자의 진입 장벽이 존재했습니다. 특히 '치맥'이라는 강력한 경쟁 상대를 넘기 위해선, 처음 접하는 조합에 대한 어색함을 해소할 전혀 새로운 접근 방식이 필요했습니다.</p>
+                            <p> 호떡과 맥주를 페어링한 브랜드 '호맥'은 신선한 콘셉트를 가졌지만, 낮은 인지도와 조합의 생소함으로 인해 소비자의 진입 장벽이 존재했습니다. 특히 '치맥'이라는 강력한 경쟁 상대를 넘기기 위해선, 처음 접하는 조합에 대한 어색함을 해소할 전혀 새로운 접근 방식이 필요했습니다.</p>
                         </div>
                         <div class="info-box">
                             <h5 class="info-box-header">Solution</h5>
@@ -905,18 +875,20 @@
 
                 <!-- KUDAF -->
                 <div>
-                    <h4 class="text-2xl font-bold mb-2 text-white">대한민국 대학생 디지털 광고제 KUDAF | 대상</h4>
+                    <!-- ⭐️ 글자 크기 조정 (text-2xl -> text-xl) -->
+                    <h4 class="text-xl font-bold mb-2 text-white">대한민국 대학생 디지털 광고제 KUDAF | 대상</h4>
                     <p class="project-subtitle">숏폼을 통해 현실에서 검증받는 콘텐츠를 만들다</p>
                     
                     <div class="mb-6 flex justify-center">
-                        <img src="portfolioImg/kudaf.png" alt="KUDAF 공모전" class="img-constrained">
+                        <img src="portfolioImg/kudaf.png" onerror="this.onerror=null; this.src='https://placehold.co/600x380/FFD94A/111827?text=KUDAF+Contest+Image';" alt="KUDAF 공모전" class="img-constrained">
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <!-- md:grid-cols-2 -> grid-cols-2 로 변경하여 항상 2열 구조 강제 -->
+                    <div class="grid grid-cols-2 gap-6">
                         <div class="info-box">
                             <h5 class="info-box-header">Problem</h5>
                             <p> 효창공원은 독립운동가들의 정신이 깃든 공간이지만, 일상에서 스쳐 지나가는 공원으로만 인식되고 있습니다. 특히 주변 주민·학생층에게조차 역사적 의미가 충분히 전달되지 못하고 있으며, 기념일(3·1절 등) 외에는 대중의 관심과 방문을 유도하기 어렵다는 문제를 안고 있습니다. 
-  또, 숏폼 전성시대 속에서, 정보 중심의 콘텐츠는 3초 이탈률이 높아 관심 확보 자체가 쉽지 않습니다. 대학 근처 명소를 소개하는 주제일수록, 소개 형태보다는 역사적 서사를 효과적으로 전달할 새로운 표현 방식이 절실했습니다.</p>
+ 또, 숏폼 전성시대 속에서, 정보 중심의 콘텐츠는 3초 이탈률이 높아 관심 확보 자체가 쉽지 않습니다. 대학 근처 명소를 소개하는 주제일수록, 소개 형태보다는 역사적 서사를 효과적으로 전달할 새로운 표현 방식이 절실했습니다.</p>
                         </div>
                         <div class="info-box">
                             <h5 class="info-box-header">Solution</h5>
@@ -941,18 +913,19 @@
                 <div class="flex items-end gap-4 mb-8">
                     <span class="project-index">03</span>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-1 text-white">영상/숏폼 제작</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-1 text-white">영상/숏폼 제작</h3>
                     </div>
                 </div>
 
                 <!-- 3-1 유튜브 제품 리뷰 채널 -->
                 <div class="mb-10 p-5 md:p-6 rounded-2xl border border-[#E5E7EB] bg-white review-layout">
                     <div class="side-imgs">
-                        <h4 class="text-xl font-bold mb-3 text-white w-full md:text-left">1) 유튜브 제품 리뷰 채널 운영 ('잔취')</h4>
+                        <!-- ⭐️ 글자 크기 조정 (text-xl -> text-lg) -->
+                        <h4 class="text-lg font-bold mb-3 text-white w-full md:text-left">1) 유튜브 제품 리뷰 채널 운영 ('잔취')</h4>
                         <p class="project-subtitle text-left w-full md:text-left">'덕질'을 영상 콘텐츠로 녹여내다</p>
                         <div class="img-container">
-                            <img src="portfolioImg/zanqu1.png" alt="유튜브 채널 1" class="w-full">
-                            <img src="portfolioImg/zanqu2.png" alt="유튜브 채널 2" class="w-full">
+                            <img src="portfolioImg/zanqu1.png" onerror="this.onerror=null; this.src='https://placehold.co/420x250/FFD94A/111827?text=YouTube+Review+1';" alt="유튜브 채널 1" class="w-full">
+                            <img src="portfolioImg/zanqu2.png" onerror="this.onerror=null; this.src='https://placehold.co/420x250/FFD94A/111827?text=YouTube+Review+2';" alt="유튜브 채널 2" class="w-full">
                         </div>
                     </div>
                     <div>
@@ -967,7 +940,7 @@
                         <div class="info-box mb-5 p-4">
                             <h5>Impact & Growth</h5>
                             <p>유입을 늘릴 수 있는 유튜브 썸네일 제작과 제목, 소개글 설정을 분석 후 적용해 왔습니다. 몇몇 브랜드에게 제품을 제공 받고 제작비를 지원받아 리뷰 영상을 제작했으며, 브랜드가 원하는 방향과 소구점, 제품 설명 등을 참고하여 협업을 진행할 수 있었습니다. 이 과정에서 직접 브랜드와의 협업 과정에서 진행되는 커뮤니케이션과 작업 스케줄 조정, 제품 리뷰 콘티안 제작과 검수 단계를 경험했습니다. 
- 트래픽이 적은 세부 시장을 공략해 조회수를 이끌어내기 위해서는, 해당 트래픽이 어느 영상으로 향하는지 모니터링 과정이 필수임을 알게 됐습니다. 직접 채널 기획부터 영상 콘티 작성, 촬영, 녹음, 편집을 할 수 있는 전반적 능력을 길렀습니다. </p>
+트래픽이 적은 세부 시장을 공략해 조회수를 이끌어내기 위해서는, 해당 트래픽이 어느 영상으로 향하는지 모니터링 과정이 필수임을 알게 됐습니다. 직접 채널 기획부터 영상 콘티 작성, 촬영, 녹음, 편집을 할 수 있는 전반적 능력을 길렀습니다. </p>
                         </div>
                         <a href="https://www.youtube.com/@Zanqu" target="_blank" class="link-btn">
                             <span><i class="fab fa-youtube text-red-500 text-xl mr-3"></i> 유튜브 채널 '잔취' 바로가기</span>
@@ -979,11 +952,12 @@
                 <!-- 3-2 SNS 계정 운영 -->
                 <div class="mb-12 pb-10 border-b border-[#E5E7EB]">
                     <div class="p-5 md:p-6 rounded-2xl border border-[#E5E7EB] bg-white">
-                        <h4 class="text-xl font-bold mb-3 text-white">2) 스토리텔링 기반 SNS 계정 운영</h4>
+                        <!-- ⭐️ 글자 크기 조정 (text-xl -> text-lg) -->
+                        <h4 class="text-lg font-bold mb-3 text-white">2) 스토리텔링 기반 SNS 계정 운영</h4>
                         <p class="project-subtitle">'썰'과 '사랑', 'AI'의 조합</p>
                         
                         <div class="mb-6 flex justify-center">
-                            <img src="portfolioImg/sns.jpeg" alt="SNS Storytelling" class="img-constrained-full">
+                            <img src="portfolioImg/sns.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/600x380/FFD94A/111827?text=SNS+Storytelling+Image';" alt="SNS Storytelling" class="img-constrained-full">
                         </div>
 
                         <div class="info-box mb-5">
@@ -1003,12 +977,13 @@
 
                 <!-- 3-3 선택형 공포게임 -->
                 <div class="mb-10 p-5 md:p-6 rounded-2xl border border-[#E5E7EB] bg-white">
-                    <h4 class="text-xl font-bold mb-3 text-white">3) 유튜브 선택형 공포게임 콘텐츠 기획</h4>
+                    <!-- ⭐️ 글자 크기 조정 (text-xl -> text-lg) -->
+                    <h4 class="text-lg font-bold mb-3 text-white">3) 유튜브 선택형 공포게임 콘텐츠 기획</h4>
                     <p class="project-subtitle">보는 콘텐츠를, '참여하는 콘텐츠'로 바꾸다</p>
 
                     <div class="img-row">
-                        <img src="portfolioImg/horror.png" alt="공포게임 1">
-                        <img src="portfolioImg/horror2.png" alt="공포게임 2">
+                        <img src="portfolioImg/horror.png" onerror="this.onerror=null; this.src='https://placehold.co/480x300/FFD94A/111827?text=Horror+Game+1';" alt="공포게임 1">
+                        <img src="portfolioImg/horror2.png" onerror="this.onerror=null; this.src='https://placehold.co/480x300/FFD94A/111827?text=Horror+Game+2';" alt="공포게임 2">
                     </div>
 
                     <div class="info-box mb-5">
@@ -1031,11 +1006,12 @@
                 
                 <!-- 3-4 브랜드 AI 숏폼 광고 -->
                 <div class="p-5 md:p-6 rounded-2xl border border-[#E5E7EB] bg-white">
-                    <h4 class="text-xl font-bold mb-3 text-white">4) 브랜드 제품 AI 숏폼 광고 (공모전)</h4>
+                    <!-- ⭐️ 글자 크기 조정 (text-xl -> text-lg) -->
+                    <h4 class="text-lg font-bold mb-3 text-white">4) 브랜드 제품 AI 숏폼 광고 (공모전)</h4>
                     <p class="project-subtitle">제품의 핵심 기능을 스토리로 풀어내다</p>
 
                     <div class="mb-6 flex justify-center">
-                        <img src="portfolioImg/biodance.png" alt="AI Ad" class="img-constrained">
+                        <img src="portfolioImg/biodance.png" onerror="this.onerror=null; this.src='https://placehold.co/600x380/FFD94A/111827?text=AI+Ad+Image';" alt="AI Ad" class="img-constrained">
                     </div>
 
                     <div class="info-box mb-5">
@@ -1058,15 +1034,16 @@
                 <div class="flex items-end gap-4 mb-8">
                     <span class="project-index">04</span>
                     <div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-1 text-white">데이터 기반 UA</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-1 text-white">데이터 기반 UA</h3>
                         <p class="project-subtitle">네이버 랭킹 1위 달성 및 PV 극대화 실무</p>
                         <p class="text-gray-400 text-sm mt-1">Fastview 제작사업본부 인턴</p>
                     </div>
                 </div>
 
+                <!-- PC 구조 유지 강제 -->
                 <div class="img-row" style="grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 0.75rem; margin: 1.2rem auto; max-width: 980px;">
-                    <img src="portfolioImg/fastview2.png" alt="인턴 업무 1">
-                    <img src="portfolioImg/fastview.png" alt="인턴 업무 2">
+                    <img src="portfolioImg/fastview2.png" onerror="this.onerror=null; this.src='https://placehold.co/480x300/FFD94A/111827?text=Fastview+UA+1';" alt="인턴 업무 1">
+                    <img src="portfolioImg/fastview.png" onerror="this.onerror=null; this.src='https://placehold.co/480x300/FFD94A/111827?text=Fastview+UA+2';" alt="인턴 업무 2">
                 </div>
 
                 <div class="info-box mb-6">
