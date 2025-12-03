@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
     <title>김산하 (SANHA KIM) 포트폴리오 - Premium Black & Gold</title>
 
     <!-- Tailwind & Icons -->
@@ -687,48 +687,7 @@
     border: 1px solid #E5E7EB;
     flex-shrink: 0;      /* flex 줄어드는 것 방지 */
 }
-        /* =========================================================
-   📌 모바일에서도 PC 레이아웃을 강제로 유지하는 코드
-   ========================================================= */
-@media (max-width: 768px) {
-
-    /* 모든 grid와 flex 구조가 모바일에서 세로로 깨지는 것을 방지 */
-    .keep-pc-layout {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: center !important;
-        align-items: flex-start !important;
-        gap: 2rem !important;
-    }
-
-    /* grid 사용한 영역에도 적용 */
-    .keep-pc-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 2rem !important;
-    }
-
-    /* 이미지 크기가 모바일에서 강제로 줄어드는 것 방지 */
-    .keep-img {
-        width: 48% !important;
-        height: auto !important;
-        object-fit: contain !important;
-    }
-
-    /* 카드/박스가 모바일에서 좁아지며 세로 정렬되는 문제 방지 */
-    .keep-wide {
-        min-width: 360px !important;
-        max-width: 480px !important;
-    }
-
-    /* 텍스트도 PC와 동일하게 유지 */
-    .keep-text {
-        max-width: 480px !important;
-        text-align: left !important;
-        font-size: 1rem !important;
-    }
-}
+        
 
     </style>
 </head>
